@@ -1,0 +1,75 @@
+{
+  "chocolates": [
+    {
+      "text": "image1",
+      "link": "https://i.postimg.cc/4ykX5LwY/pexels-gustavo-peres-6441136-Custom.jpg"
+    },
+    {
+      "text": "image2",
+      "link": "https://i.postimg.cc/Px1gttzq/pexels-karolina-grabowska-5713598-Custom.jpg"
+    },
+    {
+      "text": "image3",
+      "link": "https://i.postimg.cc/wMGcZNyR/pexels-karolina-grabowska-5713607-Custom.jpg"
+    },
+    {
+      "text": "image4",
+      "link": "https://i.postimg.cc/W1r6Yh2t/pexels-markus-spiske-965623-Custom.jpg"
+    },
+    {
+      "text": "image5",
+      "link": "https://i.postimg.cc/nry9qG92/pexels-revathi-seraman-9159719-Custom.jpg"
+    },
+    {
+      "text": "image6",
+      "link": "https://i.postimg.cc/8CpJd5c2/pexels-7407224-Custom.jpg"
+    },
+    {
+      "text": "image7",
+      "link": "https://i.postimg.cc/v8Jhdp04/pexels-7407250-Custom.jpg"
+    },
+    {
+      "text": "image8",
+      "link": "https://i.postimg.cc/26qQswvd/pexels-7407255-Custom.jpg"
+    }
+  ],
+  "beer": [
+    {
+      "text": "beer1",
+      "link": "https://i.postimg.cc/N0XTbMwb/pexels-brett-jordan-12024359-Custom.jpg"
+    },
+    {
+      "text": "beer2",
+      "link": "https://i.postimg.cc/nLnZSRy5/pexels-brett-jordan-13240263-Custom.jpg"
+    },
+    {
+      "text": "beer3",
+      "link": "https://i.postimg.cc/fRCTsQfZ/pexels-cottonbro-studio-5532849-Custom.jpg"
+    },
+    {
+      "text": "beer4",
+      "link": "https://i.postimg.cc/mDvTjLB3/pexels-ilker-gen-12690552-Custom.jpg"
+    },
+    {
+      "text": "beer5",
+      "link": "https://i.postimg.cc/NGRtYwQV/pexels-jhoon-14433926-Custom.jpg"
+    },
+    {
+      "text": "beer6",
+      "link": "https://i.postimg.cc/ZRcLFRr2/pexels-tembela-bohle-1089932-Custom.jpg"
+    },
+    {
+      "text": "beer7",
+      "link": "https://i.postimg.cc/VL7VP70p/pexels-thgusstavo-santana-2286972-Custom.jpg"
+    },
+    {
+      "text": "beer8",
+      "link": "https://i.postimg.cc/G2JX7z1M/pexels-vikki-10420412-Custom.jpg"
+    }
+  ]
+
+}
+
+
+
+ 

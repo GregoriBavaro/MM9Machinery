@@ -1,0 +1,58 @@
+.button-container {
+  width: 20rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 2rem 1.6rem;
+}
+
+.button-container span {
+  padding: 0.2rem;
+}
+
+.button-container h5 {
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  color: whitesmoke;
+}
+
+.button-container button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0.5rem 0.3rem 0.5rem 0.3rem;
+  border-radius: 0.2rem;
+  font-weight: bold;
+}
+
+.button-container button {
+  color: whitesmoke;
+  text-transform: uppercase;
+}
+
+.span-divider {
+  color: whitesmoke;
+  margin-left: 0.7rem;
+}
+
+.button-container button:hover {
+  color: rgb(0, 191, 111);
+}
+
+.button-container button:hover {
+  background-color: rgb(245, 245, 245);
+  transition: all 0.4s ease-in-out;
+}
+
+.page-name {
+  width: 20rem;
+  padding: 0 0 0 2rem;
+}
+
+.page-name h1 {
+  color: whitesmoke;
+}
+
+

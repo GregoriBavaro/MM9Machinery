@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+//Hooks
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+//Components
+import Navbar from "./components/Layout/Header/Navbar";
+// import ScrollToTop from "./components/Helpers/ScrollToTop";
+import Footer from "./components/Layout/Footer/Footer";
+import BackToTopButton from "./components/UI/BackToTopButton";
+
+
+//Pages
+import ContactUs from "./components/Pages/ContactUs";
+import Home from "./components/Pages/Home";
+import Products from "./components/Pages/Products";
+import Services from "./components/Pages/Services";
+import AboutUs from "./components/Pages/AboutUs";
+import GalleryChocolate from "./components/Pages/GalleryChocolate";
+import GalleryBeer from "./components/Pages/GalleryBeer";
+
+// const LazyAbout = React.lazy(() => import("./components/Pages/AboutUs"))
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      {/* <ScrollToTop /> */}
+      <Routes>
+        <Route path="/" element={<Home />} key={"/"} />
+        <Route path="/contact-us" element={<ContactUs />} key={"/contact-us"} />
+        <Route path="/products" element={<Products />} key={"/products"} />
+        <Route path="/services" element={<Services />} key={"/services"} />
+        <Route path="/about-us" element={<AboutUs />} key={"about-us"} />
+        <Route path="about-us/galleryChocolate" element={<GalleryChocolate />} key={"galleryChocolate"} />
+        <Route path="about-us/galleryBeer" element={<GalleryBeer />} key={"galleryBeer"} />
+      </Routes>
+      <BackToTopButton />
+      <Footer />
+    </BrowserRouter>
   );
 }
 

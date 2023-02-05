@@ -1,0 +1,158 @@
+.slogan-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.slogan-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 50px;
+  padding: 5rem;
+  background-color: rgb(242, 238, 233);
+  max-width: 1200px;
+}
+
+.slogan-inner {
+  text-align: center;
+  min-height: 12rem;
+  max-width: 16rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  object-fit: cover;
+  border-radius: 0.2rem;
+  background-color: rgb(245, 243, 242);
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+    rgba(0, 0, 0, 0.141) 0px 6px 6px;
+  border: 5px solid rgb(245, 243, 242);
+}
+
+.slogan-inner img {
+  max-width: 40%;
+  max-height: 100%;
+}
+
+.slogan-inner h3 {
+  margin-top: 1rem;
+}
+
+.slogan-inner h3::after {
+  content: "";
+  border-bottom: 3px solid rgb(0, 191, 111);
+  width: 60%;
+  margin-inline: auto;
+  display: block;
+  padding-top: 1rem;
+}
+
+.slogan-inner p {
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+}
+
+.card-header {
+  height: 210px;
+  width: 100%;
+  background: linear-gradient(
+    to bottom left,
+    rgb(119, 119, 119),
+    rgb(40, 40, 40)
+  );
+  border-radius: 100% 0% 100% 0% / 0% 50% 50% 100%;
+  display: grid;
+  place-items: center;
+}
+
+@media (max-width: 1040px) {
+  .slogan-container {
+    justify-content: space-around;
+  }
+
+  .slogan-inner {
+    max-width: 12rem;
+  }
+
+  .slogan-inner img {
+    max-width: 30%;
+  }
+
+  .card-header {
+    height: 160px;
+  }
+
+  .slogan-inner h3 {
+    font-size: 0.9rem;
+  }
+
+  .slogan-inner p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 850px) {
+  .slogan-container {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 30px;
+    padding: 5rem 3rem;
+  }
+
+  .slogan-inner {
+    min-height: 12rem;
+    max-width: 30rem;
+    flex-direction: row;
+  }
+
+  .slogan-inner img {
+    max-width: 40%;
+  }
+
+  .card-header {
+    height: 100%;
+    border-radius: 100% 0% 60% 0% / 0% 20% 100% 100%;
+    min-width: 12rem;
+  }
+
+  .slogan-inner h3 {
+    font-size: 0.9rem;
+  }
+
+  .slogan-inner p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 530px) {
+  .slogan-container {
+    flex-direction: row;
+  }
+
+  .slogan-inner {
+    min-height: 12rem;
+    max-width: 30rem;
+    flex-direction: column;
+  }
+
+  .slogan-inner img {
+    max-width: 30%;
+  }
+
+  .card-header {
+    height: 11rem;
+    border-radius: 100% 0% 100% 0% / 0% 50% 50% 100%;
+    min-width: 12rem;
+  }
+
+  .slogan-inner h3 {
+    font-size: 0.9rem;
+  }
+
+  .slogan-inner p {
+    font-size: 0.8rem;
+  }
+}
