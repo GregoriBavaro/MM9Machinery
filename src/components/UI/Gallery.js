@@ -1,7 +1,6 @@
 //Hook
 import { useState } from "react";
 import { AnimatePresence, motion as m } from "framer-motion";
-import { useSwipeable } from "react-swipeable";
 
 //CSS
 import "./Gallery.css";
@@ -14,7 +13,7 @@ const Gallery = (props) => {
 
   const [clickedImg, setClickedImg] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
-  const [showDiv, setShowDIv] = useState(false);
+  
 
   const handleClick = (item, index) => {
     setCurrentIndex(index);

@@ -1,6 +1,5 @@
 //Hooks
 import { motion as m } from "framer-motion";
-import { useTranslation } from "react-i18next";
 import { useSwipeable } from "react-swipeable";
 
 //CSS
@@ -14,7 +13,7 @@ const Modal = ({
   handelRotationRight,
   handelRotationLeft,
 }) => {
-  const { t } = useTranslation();
+  
 
   const handleClick = (e) => {
     if (e.target.classList.contains("dismiss")) {

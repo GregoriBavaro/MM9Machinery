@@ -23,7 +23,7 @@ const Sections = (props) => {
       <m.div
         className={`section-inner_right ${props.right} clip-path-${props.clipPath}`}
       >
-        <img src={cardboard} alt="photo"/>
+        <img src={cardboard} alt=""/>
       </m.div>
     </div>
   );
