@@ -2,6 +2,7 @@
 import { motion as m } from "framer-motion";
 import { useSwipeable } from "react-swipeable";
 
+
 //CSS
 import "./Gallery.css";
 
@@ -15,28 +16,37 @@ const Modal = ({
 }) => {
   
 
+  if (clickedImg) {
+    document.querySelector("html").classList.add("overflow-hidden");
+    
+  }
+
   const handleClick = (e) => {
     if (e.target.classList.contains("dismiss")) {
       setClickedImg(null);
+      document.querySelector("html").classList.remove("overflow-hidden");
     }
   };
 
   const dropIn = {
     hidden: {
-      y: "-100vh",
+      scale: 0,
       opacity: 0,
+      x: 0,
     },
     visible: {
-      y: "0",
+      scale: 1,
       opacity: 1,
+      x: 0,
       transition: {
-        duration: 0.3,
+        duration: 0.4,
+        delay: 0.2,
         damping: "spring",
-        stiffness: "700",
+        stiffness: "500",
       },
     },
     exit: {
-      y: "-100vh",
+      scale: 0,
       opacity: 0,
     },
   };
@@ -47,16 +57,18 @@ const Modal = ({
   });
 
   return (
-    <m.div {...handlers}
+    <m.div
+      {...handlers}
       variants={dropIn}
       initial="hidden"
       animate="visible"
       exit="exit"
+      transition={{ delay: 0.2, duration: 0.4 }}
       className="overlay dismiss"
       onClick={handleClick}
     >
       <div className="dismiss backArrow">
-        <m.img
+        <m.img 
           onClick={handleClick}
           className="dismiss backArrow"
           whileHover={{ scale: 1.1 }}
@@ -64,8 +76,7 @@ const Modal = ({
           src={close}
         />
       </div>
-      <img src={clickedImg} alt="bigger pic" />
-
+      <img src={clickedImg} alt="bigger pic" className="dismiss" />
       <div onClick={handelRotationLeft} className="overlay-arrows_left">
         <div>
           <m.svg

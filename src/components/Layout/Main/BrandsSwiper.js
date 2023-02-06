@@ -2,8 +2,6 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 
 // CSS
-import "swiper/css";
-import "swiper/css/autoplay";
 import "./OurClients.css";
 import "@splidejs/react-splide/css/sea-green";
 

@@ -1,5 +1,4 @@
 //Hooks
-import {useState} from "react"
 import { nameContext } from "../Hooks/Context";
 import { motion as m } from "framer-motion";
 
@@ -9,12 +8,11 @@ import ContactUsInfo from "../UI/ContactUsInfo";
 import NameOfPageContainer from "../UI/NameOfPageContainer";
 import ScrollToTop from "../Helpers/ScrollToTop";
 
-const pageName = "contact";
 
 const ContactUs = () => {
-  const [name, setName] = useState("contact");
-  const [link, setLink] = useState("/");
-  const [backName, setBackName] = useState("home");
+  const name = "contact";
+  const link = "/";
+  const backName = "home";
 
   return (
     <m.div

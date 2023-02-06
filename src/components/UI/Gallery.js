@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion as m } from "framer-motion";
 
+
 //CSS
 import "./Gallery.css";
 
@@ -14,12 +15,12 @@ const Gallery = (props) => {
   const [clickedImg, setClickedImg] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
   
-
   const handleClick = (item, index) => {
     setCurrentIndex(index);
     setClickedImg(item.link);
   };
 
+  
   const handelRotationRight = () => {
     const totalLength = data.length;
     if (currentIndex + 1 >= totalLength) {
@@ -54,14 +55,13 @@ const Gallery = (props) => {
     setCurrentIndex(newIndex);
   };
 
- 
-
+  
   return (
     <div className="gallery-container">
       <div className="wrapper">
         {data.map((item, index) => (
           <m.div key={index} className="wrapper-images">
-            <m.img
+            <m.img className="image-container__closed"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -71,17 +71,14 @@ const Gallery = (props) => {
             />
           </m.div>
         ))}
-
         <AnimatePresence>
           {clickedImg && (
-            
               <Modal 
                 clickedImg={clickedImg}
                 handelRotationRight={handelRotationRight}
                 setClickedImg={setClickedImg}
                 handelRotationLeft={handelRotationLeft}
               />
-            
           )}
         </AnimatePresence>
       </div>

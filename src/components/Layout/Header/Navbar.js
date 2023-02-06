@@ -2,6 +2,7 @@
 import React, { useState, Fragment } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { motion as m } from "framer-motion";
 
 //Components
 import Dropdown from "./Dropdown";
@@ -16,6 +17,7 @@ import logo from "../../../images/MM9MH.png";
 const Navbar = () => {
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const [dropdownLanguages, setDropdownLanguages] = useState(false);
 
@@ -34,11 +36,14 @@ const Navbar = () => {
   }
 
   const onMouseEnter = () => {
+    setIsHovered(true);
     window.innerWidth <= 960 ? setDropdown(false) : setDropdown(true);
   };
 
   const onMouseLeave = () => {
+    setIsHovered(false);
     window.innerWidth <= 960 ? setDropdown(false) : setDropdown(false);
+    
   };
 
   const onMouseEnterLanguages = () => {
@@ -53,7 +58,6 @@ const Navbar = () => {
 
   const { t } = useTranslation();
 
-  
   return (
     <Fragment>
       <nav className="navbar">
@@ -97,7 +101,11 @@ const Navbar = () => {
               className="nav-links"
               onClick={closeMobileMenu}
             >
-              {t("products")} <i className="fas fa-caret-down" />
+              {t("products")}{" "}
+              <m.i
+                animate={{ rotate: isHovered ? 180 : 0 }}
+                className="fas fa-caret-down"
+              />
             </NavLink>
             {dropdown && <Dropdown />}
           </li>

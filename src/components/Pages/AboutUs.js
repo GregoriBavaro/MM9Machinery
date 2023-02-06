@@ -1,5 +1,4 @@
 //Hooks
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { nameContext } from "../Hooks/Context";
 import { motion as m } from "framer-motion";
@@ -12,9 +11,9 @@ import AboutWhatWeDo from "../UI/AboutWhatWeDo";
 import MissionVisionValues from "../UI/MissionVisionValues";
 
 const AboutUs = () => {
-  const [name, setName] = useState("about_us");
-  const [link, setLink] = useState("/");
-  const [backName, setBackName] = useState("home");
+  const name = "about_us";
+  const link = "/";
+  const backName = "home";
 
   const { t } = useTranslation();
 

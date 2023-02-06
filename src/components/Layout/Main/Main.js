@@ -5,6 +5,7 @@ import { Fragment } from "react";
 import HeroShapeDivider from "../../UI/HeroShapeDivider";
 import VerticalSlide from "./VerticalSlide";
 import OurClients from "./OurClients";
+import OurPackages from "../../Layout/Main/OurPackages";
 
 //CSS
 import "../../UI/HeroShapeDivider.css";
@@ -18,6 +19,7 @@ const Main = () => {
       <VerticalSlide />
       <OurClients />
       <Testimonials />
+      <OurPackages />
     </Fragment>
   );
 };
