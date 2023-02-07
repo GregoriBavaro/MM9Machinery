@@ -6,7 +6,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Notifications = () => {
 
-
   const { t } = useTranslation();
 
   const notify200 = () =>

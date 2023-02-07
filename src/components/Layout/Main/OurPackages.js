@@ -1,63 +1,43 @@
 //Hooks
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { useTranslation } from "react-i18next";
-import { motion as m, AnimatePresence, animate } from "framer-motion";
+import { motion as m, AnimatePresence } from "framer-motion";
+import useLightBox from "../../Hooks/use-lightBox";
 
 //Components
 import GlobalButton from "../../UI/GlobalButton";
+import Modal from "../../UI/Modal";
+import ArrowDownSvg from "../../UI/ArrowDownSvg";
 
 //CSS
 import "./OurPackages.css";
 import "@splidejs/react-splide/css/sea-green";
 
-//Imgs
-import brand1 from "../../../images/brands/burger-king.png";
-import brand3 from "../../../images/brands/coca-cola.png";
-import brand4 from "../../../images/brands/redbull.png";
-import brand5 from "../../../images/brands/mcdonalds.png";
-import brand6 from "../../../images/brands/hummer.png";
+//Data
+import data from "../../../Data/products.json";
 
-const brands = [
-  brand1,
-  brand1,
-  brand1,
-  brand1,
-  brand1,
-  brand1,
-  brand1,
-  brand1,
-  brand1,
-];
-
-const brands1 = [
-  brand3,
-  brand3,
-  brand3,
-  brand3,
-  brand3,
-  brand3,
-  brand3,
-  brand3,
-  brand3,
-];
-
-const brands2 = [
-  brand4,
-  brand4,
-  brand4,
-  brand4,
-  brand4,
-  brand4,
-  brand4,
-  brand4,
-  brand4,
-];
+const allProducts = [...data.laminated, ...data.cardboard, ...data.transport];
+const laminated = [...data.laminated];
+const cardboard = [...data.cardboard];
+const transport = [...data.transport];
+const liMenu = [...data.dorpDownMenuLis];
 
 const OurPackages = () => {
-  const [dropDown, setDropDown] = useState(false);
-  const [data, setData] = useState(brands);
   const { t } = useTranslation();
+
+  const [dropDown, setDropDown] = useState(false);
+  const [menuAllProducts, setMenuAllProducts] = useState(false);
+  const [currentActiveMenu, setCurrentActiveMenu] = useState("all_products");
+  const [data, setData] = useState(allProducts);
+
+  const {
+    handelRotationLeft,
+    handelRotationRight,
+    handleClick,
+    clickedImg,
+    setClickedImg,
+  } = useLightBox();
 
   const dropDownMenuHandler = () => {
     setDropDown(true);
@@ -66,12 +46,13 @@ const OurPackages = () => {
     }
   };
 
-  const handleClick = (e) => {
+  const handleClickDismiss = (e) => {
     if (
       e.target.classList.contains("our-packages-container") ||
       e.target.classList.contains("our-packages__swiper") ||
       e.target.classList.contains("our-packages__slides") ||
       e.target.classList.contains("our-packages__button") ||
+      e.target.classList.contains("dropdown-li") ||
       e.target.classList.contains("our-packages__photo")
     ) {
       setDropDown(false);
@@ -79,14 +60,25 @@ const OurPackages = () => {
   };
 
   const handleCheckedLi = (e) => {
+    if (e.currentTarget.dataset.id === "0") {
+      setData(allProducts);
+      setMenuAllProducts(false);
+      setCurrentActiveMenu("all_products");
+    }
     if (e.currentTarget.dataset.id === "1") {
-      setData(brands);
+      setData(laminated);
+      setMenuAllProducts(true);
+      setCurrentActiveMenu("laminated");
     }
     if (e.currentTarget.dataset.id === "2") {
-      setData(brands1);
+      setData(cardboard);
+      setMenuAllProducts(true);
+      setCurrentActiveMenu("cardboard");
     }
     if (e.currentTarget.dataset.id === "3") {
-      setData(brands2);
+      setData(transport);
+      setMenuAllProducts(true);
+      setCurrentActiveMenu("transport");
     }
   };
 
@@ -95,7 +87,7 @@ const OurPackages = () => {
       opacity: 1,
       rotateX: 0,
       transition: {
-        duration: 0.8,
+        duration: 0.3,
       },
     },
     exit: {
@@ -108,81 +100,121 @@ const OurPackages = () => {
   };
 
   return (
-    <div onClick={handleClick} className="our-packages-container">
-      <h1>Get inspired</h1>
-      <div
-        onClick={dropDownMenuHandler}
-        className={
-          dropDown
-            ? "our-packages__dropdown"
-            : "our-packages__dropdown box-shadow"
-        }
-      >
-        <div>
-          <h3>All products</h3>
+    <Fragment>
+      <div onClick={handleClickDismiss} className="our-packages-container">
+        <h1>{t("product_search")}</h1>
+        <div
+          onClick={dropDownMenuHandler}
+          className={
+            dropDown
+              ? "our-packages__dropdown"
+              : "our-packages__dropdown box-shadow"
+          }
+        >
+          <div>
+            <h3>{t(currentActiveMenu)}</h3>
+          </div>
+          <div>
+            <ArrowDownSvg dropDown={dropDown} />
+          </div>
         </div>
-        <div>
-          <m.i
-            animate={{ rotate: dropDown ? 180 : 0 }}
-            className="fas fa-caret-down"
-          />
+        <AnimatePresence>
+          {dropDown && (
+            <m.div
+              initial="exit"
+              animate="enter"
+              exit="exit"
+              variants={subMenuAnimate}
+              className={
+                menuAllProducts
+                  ? "our-packages__dropdown-menu margin-minus-one"
+                  : "our-packages__dropdown-menu"
+              }
+            >
+              <ul>
+                {menuAllProducts && (
+                  <li
+                    className="dropdown-li"
+                    onClick={handleCheckedLi}
+                    data-id="0"
+                  >
+                    {t("all_products")}
+                  </li>
+                )}
+                {liMenu.map((item, index) => {
+                  return (
+                    <li
+                      key={index}
+                      className={item.className}
+                      onClick={handleCheckedLi}
+                      data-id={item.dataId}
+                    >
+                      {t(item.liName)}
+                    </li>
+                  );
+                })}
+              </ul>
+            </m.div>
+          )}
+        </AnimatePresence>
+        <div className="our-packages__swiper">
+          <Splide
+            options={{
+              rewind: true,
+              gap: "2rem",
+              autoplay: true,
+              pauseOnHover: false,
+              resetProgress: false,
+              pagination: true,
+              arrows: false,
+              width: 1200,
+              perPage: 4,
+              breakpoints: {
+                1050: {
+                  width: 800,
+                  perPage: 3,
+                  gap: "1rem",
+                },
+                735: {
+                  width: 600,
+                  perPage: 2,
+                },
+                450: {
+                  width: 300,
+                  perPage: 1,
+                },
+              },
+            }}
+          >
+            {data.map((item, index) => {
+              return (
+                <SplideSlide className="our-packages__slides" key={index}>
+                  <img
+                    src={item.link}
+                    className="our-packages__photo"
+                    alt=""
+                    onClick={() => handleClick(item, index)}
+                  />
+                </SplideSlide>
+              );
+            })}
+          </Splide>
+        </div>
+        <div className="our-packages__button">
+          <GlobalButton name={t("full_products")} to="/products" class="btn" />
         </div>
       </div>
       <AnimatePresence>
-        {dropDown && (
-          <m.div
-            initial="exit"
-            animate="enter"
-            exit="exit"
-            variants={subMenuAnimate}
-            className="our-packages__dropdown-menu"
-          >
-            <ul>
-              <li onClick={handleCheckedLi} data-id="1">
-                Laminated packaging
-              </li>
-              <li onClick={handleCheckedLi} data-id="2">
-                Cardboard packaging
-              </li>
-              <li onClick={handleCheckedLi} data-id="3">
-                Transport packaging
-              </li>
-            </ul>
-          </m.div>
+        {clickedImg && (
+          <Modal
+            clickedImg={clickedImg}
+            handelRotationRight={handelRotationRight}
+            setClickedImg={setClickedImg}
+            handelRotationLeft={handelRotationLeft}
+          />
         )}
       </AnimatePresence>
-
-      <div className="our-packages__swiper">
-        <Splide
-          options={{
-            rewind: true,
-            width: 800,
-            gap: "2rem",
-            autoplay: true,
-            pauseOnHover: false,
-            resetProgress: false,
-            arrows: false,
-            perPage: 4,
-            breakpoints: {
-              660: {
-                perPage: 3,
-              },
-            },
-          }}
-        >
-          {data.map((logo, index) => {
-            return (
-              <SplideSlide className="our-packages__slides" key={index}>
-                <img src={logo} className="our-packages__photo" alt="" />
-              </SplideSlide>
-            );
-          })}
-        </Splide>
-      </div>
-      <div className="our-packages__button">
-        <GlobalButton name={t("products")} to="/products" class="btn" />
-      </div>
-    </div>
+    </Fragment>
   );
 };
 

@@ -18,8 +18,8 @@ const Main = () => {
       <HeroShapeDivider />
       <VerticalSlide />
       <OurClients />
-      <Testimonials />
       <OurPackages />
+      <Testimonials />
     </Fragment>
   );
 };

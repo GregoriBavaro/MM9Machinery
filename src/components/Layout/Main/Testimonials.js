@@ -21,6 +21,7 @@ const Testimonials = () => {
             autoplay: true,
             pauseOnHover: false,
             resetProgress: false,
+            pagination: false
           }}
         >
           {TestimonialsItems.map(({ from, testimonial, index }) => {

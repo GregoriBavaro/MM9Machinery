@@ -3,7 +3,6 @@
   justify-content: center;
   flex-direction: row;
   width: 100%;
-  margin-top: 2rem;
   background-color: rgb(242, 238, 233);
 }
 
@@ -139,6 +138,7 @@
 @media (max-width: 960px) {
   .vertical-slides-container {
     flex-direction: column;
+    margin-bottom: 7rem;
   }
 
   .container-slide-in img {

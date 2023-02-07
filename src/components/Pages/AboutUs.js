@@ -9,6 +9,7 @@ import NameOfPageContainer from "../UI/NameOfPageContainer";
 import Sections from "../UI/Sections";
 import AboutWhatWeDo from "../UI/AboutWhatWeDo";
 import MissionVisionValues from "../UI/MissionVisionValues";
+import BackToTopButton from "../UI/BackToTopButton";
 
 const AboutUs = () => {
   const name = "about_us";
@@ -19,9 +20,10 @@ const AboutUs = () => {
 
   return (
     <m.div
-      initial={{ width: 0 }}
-      animate={{ width: "100%" }}
-      exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 1 }}
     >
       <nameContext.Provider value={{ name, link, backName }}>
         <NameOfPageContainer />
@@ -46,6 +48,7 @@ const AboutUs = () => {
       />
       <AboutWhatWeDo />
       <MissionVisionValues />
+      <BackToTopButton />
     </m.div>
   );
 };

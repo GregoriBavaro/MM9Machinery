@@ -4,10 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 //Components
 import Navbar from "./components/Layout/Header/Navbar";
-// import ScrollToTop from "./components/Helpers/ScrollToTop";
 import Footer from "./components/Layout/Footer/Footer";
-import BackToTopButton from "./components/UI/BackToTopButton";
-
 
 //Pages
 import ContactUs from "./components/Pages/ContactUs";
@@ -24,7 +21,6 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      {/* <ScrollToTop /> */}
       <Routes>
         <Route path="/" element={<Home />} key={"/"} />
         <Route path="/contact-us" element={<ContactUs />} key={"/contact-us"} />
@@ -34,7 +30,7 @@ function App() {
         <Route path="about-us/galleryChocolate" element={<GalleryChocolate />} key={"galleryChocolate"} />
         <Route path="about-us/galleryBeer" element={<GalleryBeer />} key={"galleryBeer"} />
       </Routes>
-      <BackToTopButton />
+      
       <Footer />
     </BrowserRouter>
   );

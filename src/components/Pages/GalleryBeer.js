@@ -5,6 +5,7 @@ import ScrollToTop from "../Helpers/ScrollToTop";
 //Components
 import Gallery from "../UI/Gallery";
 import NameOfPageContainer from "../UI/NameOfPageContainer";
+import BackToTopButton from "../UI/BackToTopButton";
 
 //Data
 import data from "../../Data/images.json";
@@ -23,6 +24,7 @@ const GalleryBeer = () => {
         <NameOfPageContainer />
       </nameContext.Provider>
       <Gallery data={array} />
+      <BackToTopButton />
     </div>
   );
 };

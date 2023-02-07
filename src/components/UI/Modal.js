@@ -15,10 +15,8 @@ const Modal = ({
   handelRotationLeft,
 }) => {
   
-
   if (clickedImg) {
     document.querySelector("html").classList.add("overflow-hidden");
-    
   }
 
   const handleClick = (e) => {

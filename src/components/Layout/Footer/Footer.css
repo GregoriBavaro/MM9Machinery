@@ -8,6 +8,7 @@
   background-color: whitesmoke;
   padding: 3rem;
   gap: 1.3rem; 
+  z-index: -1;
 }
 
 .footer-container-top h2 {

@@ -7,7 +7,7 @@ import EmailUs from "../UI/EmailUs";
 import ContactUsInfo from "../UI/ContactUsInfo";
 import NameOfPageContainer from "../UI/NameOfPageContainer";
 import ScrollToTop from "../Helpers/ScrollToTop";
-
+import BackToTopButton from "../UI/BackToTopButton";
 
 const ContactUs = () => {
   const name = "contact";
@@ -16,9 +16,10 @@ const ContactUs = () => {
 
   return (
     <m.div
-    initial={{ width: 0 }}
-    animate={{ width: "100%" }}
-      exit={{x: window.innerWidth, transition: {duration: 0.1}  }}
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 1 }}
     >
       <ScrollToTop />
       <nameContext.Provider value={{ name, link, backName }}>
@@ -28,6 +29,7 @@ const ContactUs = () => {
         <EmailUs />
         <ContactUsInfo />
       </div>
+      <BackToTopButton />
     </m.div>
   );
 };

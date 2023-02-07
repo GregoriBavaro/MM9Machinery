@@ -17,9 +17,9 @@ const VerticalSlide = () => {
   return (
     <div className="vertical-slides-container">
       <m.div
-        initial={{ x: "-100%" }}
-        whileInView={{ x: 0 }}
-        transition={{ duration: 2, ease: "easeOut" }}
+        initial={{ y: "60%" }}
+        whileInView={{ y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
         exit={{ opacity: 1 }}
         viewport={{ once: true }}
         className="container-slide-in"
@@ -27,9 +27,9 @@ const VerticalSlide = () => {
         <img src={heroPhoto} alt="beer-package" />
       </m.div>
       <m.div
-        initial={{ x: "100%" }}
-        whileInView={{ x: 0 }}
-        transition={{ duration: 2, ease: "easeOut" }}
+        initial={{ y: "60%" }}
+        whileInView={{ y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
         exit={{ opacity: 1 }}
         viewport={{ once: true }}
         className="container-slide-in"

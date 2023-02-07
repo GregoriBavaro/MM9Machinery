@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   font-family: "PT Sans", sans-serif;
+
 }
 
 html {
@@ -13,11 +14,15 @@ html {
 
 body {
   background-color: rgb(242, 238, 233);
-  overflow-y: hidden;
+  overflow-y: hidden !important;
 }
 
 .overflow-hidden {
   overflow-y: hidden;
+}
+
+.display-none {
+  display: none;
 }
 
 .divider-div-container {
@@ -119,6 +124,11 @@ button:disabled:active {
 
 .splide__pagination__page.is-active {
   border: 5px solid rgb(0, 191, 111) !important;
+}
+
+.splide__pagination {
+  position: absolute !important;
+  top: 110% !important;
 }
 
 .splide {

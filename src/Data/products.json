@@ -1,0 +1,121 @@
+{
+  "laminated": [
+    {
+      "text": "laminated1",
+      "link": "https://i.postimg.cc/4ykX5LwY/pexels-gustavo-peres-6441136-Custom.jpg"
+    },
+    {
+      "text": "laminated2",
+      "link": "https://i.postimg.cc/Px1gttzq/pexels-karolina-grabowska-5713598-Custom.jpg"
+    },
+    {
+      "text": "laminated3",
+      "link": "https://i.postimg.cc/wMGcZNyR/pexels-karolina-grabowska-5713607-Custom.jpg"
+    },
+    {
+      "text": "laminated4",
+      "link": "https://i.postimg.cc/W1r6Yh2t/pexels-markus-spiske-965623-Custom.jpg"
+    },
+    {
+      "text": "laminated5",
+      "link": "https://i.postimg.cc/nry9qG92/pexels-revathi-seraman-9159719-Custom.jpg"
+    },
+    {
+      "text": "laminated6",
+      "link": "https://i.postimg.cc/8CpJd5c2/pexels-7407224-Custom.jpg"
+    },
+    {
+      "text": "laminated7",
+      "link": "https://i.postimg.cc/v8Jhdp04/pexels-7407250-Custom.jpg"
+    },
+    {
+      "text": "laminated8",
+      "link": "https://i.postimg.cc/26qQswvd/pexels-7407255-Custom.jpg"
+    }
+  ],
+  "cardboard": [
+    {
+      "text": "cardboard1",
+      "link": "https://i.postimg.cc/N0XTbMwb/pexels-brett-jordan-12024359-Custom.jpg"
+    },
+    {
+      "text": "cardboard2",
+      "link": "https://i.postimg.cc/nLnZSRy5/pexels-brett-jordan-13240263-Custom.jpg"
+    },
+    {
+      "text": "cardboard3",
+      "link": "https://i.postimg.cc/fRCTsQfZ/pexels-cottonbro-studio-5532849-Custom.jpg"
+    },
+    {
+      "text": "cardboard4",
+      "link": "https://i.postimg.cc/mDvTjLB3/pexels-ilker-gen-12690552-Custom.jpg"
+    },
+    {
+      "text": "cardboard5",
+      "link": "https://i.postimg.cc/NGRtYwQV/pexels-jhoon-14433926-Custom.jpg"
+    },
+    {
+      "text": "cardboard6",
+      "link": "https://i.postimg.cc/ZRcLFRr2/pexels-tembela-bohle-1089932-Custom.jpg"
+    },
+    {
+      "text": "cardboard7",
+      "link": "https://i.postimg.cc/VL7VP70p/pexels-thgusstavo-santana-2286972-Custom.jpg"
+    },
+    {
+      "text": "cardboard8",
+      "link": "https://i.postimg.cc/G2JX7z1M/pexels-vikki-10420412-Custom.jpg"
+    }
+  ],
+  "transport": [
+    {
+      "text": "transport1",
+      "link": "https://i.postimg.cc/1zBGyznB/Tuck-top-box-3.jpg"
+    },
+    {
+      "text": "transport2",
+      "link": "https://i.postimg.cc/SsjMqfpQ/White-corrugated-paper-box.jpg"
+    },
+    {
+      "text": "transport3",
+      "link": "https://i.postimg.cc/QtRqHdsT/Tuck-top-box-1.jpg"
+    },
+    {
+      "text": "transport4",
+      "link": "https://i.postimg.cc/fT7vRsPV/Tuck-top-box.jpg"
+    },
+    {
+      "text": "transport5",
+      "link": "https://i.postimg.cc/Nj4bpt83/Tuck-top-box-2.jpg"
+    },
+    {
+      "text": "transport6",
+      "link": "https://i.postimg.cc/YC9mBwBK/wine-packaging-shipping-mailer-box.jpg"
+    },
+    {
+      "text": "transport7",
+      "link": "https://i.postimg.cc/Hs37NkK9/eyelash-packaging-shipping-mailer-box.jpg"
+    },
+    {
+      "text": "transport8",
+      "link": "https://i.postimg.cc/2Sch1S7S/Mailing-box.jpg"
+    }
+  ],
+  "dorpDownMenuLis": [
+    {
+      "className": "dropdown-li",
+      "liName": "laminated",
+      "dataId": "1"
+    },
+    {
+      "className": "dropdown-li",
+      "liName": "cardboard",
+      "dataId": "2"
+    },
+    {
+      "className": "dropdown-li",
+      "liName": "transport",
+      "dataId": "3"
+    }
+  ]
+}

@@ -18,7 +18,6 @@ const Navbar = () => {
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-
   const [dropdownLanguages, setDropdownLanguages] = useState(false);
 
   const handleClick = () => {
@@ -102,7 +101,7 @@ const Navbar = () => {
               onClick={closeMobileMenu}
             >
               {t("products")}{" "}
-              <m.i
+              <m.i 
                 animate={{ rotate: isHovered ? 180 : 0 }}
                 className="fas fa-caret-down"
               />
