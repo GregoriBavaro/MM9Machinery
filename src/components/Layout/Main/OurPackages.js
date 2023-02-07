@@ -37,7 +37,7 @@ const OurPackages = () => {
     handleClick,
     clickedImg,
     setClickedImg,
-  } = useLightBox();
+  } = useLightBox(data);
 
   const dropDownMenuHandler = () => {
     setDropDown(true);
@@ -182,6 +182,7 @@ const OurPackages = () => {
                 450: {
                   width: 300,
                   perPage: 1,
+                  pagination: false,
                 },
               },
             }}

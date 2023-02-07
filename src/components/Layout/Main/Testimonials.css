@@ -12,6 +12,7 @@
   text-transform: uppercase;
   font-size: 1.3rem;
   padding: 2rem 0;
+  user-select: none;
 }
 
 .testimonials-container h1::after {

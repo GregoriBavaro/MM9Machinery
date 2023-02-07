@@ -18,7 +18,7 @@ const Gallery = (props) => {
     handleClick,
     clickedImg,
     setClickedImg,
-  } = useLightBox();
+  } = useLightBox(data);
 
   return (
     <div className="gallery-container">

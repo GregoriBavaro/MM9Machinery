@@ -1,7 +1,7 @@
 //Hooks
 import React, { useRef } from "react";
 import useInput from "../Hooks/use-input";
-import Notifications from "../Hooks/Notifications";
+import Notifications from "../Hooks/use-notifications";
 import emailjs from "@emailjs/browser";
 import { useTranslation } from "react-i18next";
 import { ToastContainer } from "react-toastify"
