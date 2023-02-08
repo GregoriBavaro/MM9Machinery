@@ -1,18 +1,18 @@
 
 export const MenuItems = [
     {
-        title: "Laminated Packaging",
-        path: "/laminated-packaging",
+        title: "laminated",
+        path: "/products/laminated",
         cName: "dropdown-link"
     },
     {
-        title: "Cardboard Packaging",
-        path: "/cardboard-packaging",
+        title: "cardboard",
+        path: "/products/cardboard",
         cName: "dropdown-link"
     },
     {
-        title: "Transport Packaging",
-        path: "/transport-packaging",
+        title: "transport",
+        path: "/products/transport",
         cName: "dropdown-link"
     }
 ]

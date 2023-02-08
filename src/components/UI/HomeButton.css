@@ -5,7 +5,8 @@
   align-items: center;
   justify-content: flex-start;
   text-align: center;
-  padding: 2rem 1.6rem;
+  padding: 2rem 0;
+  width: fit-content;
 }
 
 .button-container span {
@@ -16,25 +17,24 @@
   padding: 0.5rem 1rem;
   text-transform: uppercase;
   color: whitesmoke;
+  font-weight: normal;
 }
 
 .button-container button {
   border: none;
   background-color: transparent;
   cursor: pointer;
-  padding: 0.5rem 0.3rem 0.5rem 0.3rem;
+  padding: 0.5rem 0.7rem;
   border-radius: 0.2rem;
-  font-weight: bold;
-}
-
-.button-container button {
+  font-weight: bolder;
   color: whitesmoke;
   text-transform: uppercase;
 }
 
+
 .span-divider {
   color: whitesmoke;
-  margin-left: 0.7rem;
+  margin: 0 0.7rem;
 }
 
 .button-container button:hover {
@@ -47,8 +47,8 @@
 }
 
 .page-name {
-  width: 20rem;
-  padding: 0 0 0 2rem;
+  width: fit-content;
+  padding: 0 0 0 0.7rem;
 }
 
 .page-name h1 {

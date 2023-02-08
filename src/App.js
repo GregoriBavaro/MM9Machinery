@@ -14,6 +14,9 @@ import Services from "./components/Pages/Services";
 import AboutUs from "./components/Pages/AboutUs";
 import GalleryChocolate from "./components/Pages/GalleryChocolate";
 import GalleryBeer from "./components/Pages/GalleryBeer";
+import Laminated from "./components/Pages/Laminated";
+import Transport from "./components/Pages/Transport";
+import Cardboard from "./components/Pages/Cardboard";
 
 // const LazyAbout = React.lazy(() => import("./components/Pages/AboutUs"))
 
@@ -29,6 +32,9 @@ function App() {
         <Route path="/about-us" element={<AboutUs />} key={"about-us"} />
         <Route path="about-us/galleryChocolate" element={<GalleryChocolate />} key={"galleryChocolate"} />
         <Route path="about-us/galleryBeer" element={<GalleryBeer />} key={"galleryBeer"} />
+        <Route path="products/laminated" element={<Laminated />} key={"laminated"} />
+        <Route path="products/transport" element={<Transport />} key={"transport"} />
+        <Route path="products/cardboard" element={<Cardboard />} key={"cardboard"} />
       </Routes>
       
       <Footer />

@@ -34,8 +34,8 @@
 .nav-item {
   display: flex;
   height: 80px;
-  z-index: 5;
   cursor: pointer;
+  
 }
 
 .nav-links {

@@ -13,14 +13,26 @@ import data from "../../Data/images.json";
 const GalleryBeer = () => {
   const array = [...data.beer];
 
-  const name = "gallery_beer";
-  const link = "/about-us";
-  const backName = "about_us";
+  const currentPageName = "gallery_beer";
+  const previousPageLink = "/about-us";
+  const previousPageName = "about_us";
+  const homePageName = "home";
+  const homePageLink = "/";
+  const twoButtons = true;
 
   return (
     <div>
       <ScrollToTop />
-      <nameContext.Provider value={{ name, link, backName }}>
+      <nameContext.Provider
+        value={{
+          currentPageName,
+          previousPageLink,
+          previousPageName,
+          homePageName,
+          homePageLink,
+          twoButtons,
+        }}
+      >
         <NameOfPageContainer />
       </nameContext.Provider>
       <Gallery data={array} />

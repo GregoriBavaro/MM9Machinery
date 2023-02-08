@@ -7,7 +7,7 @@ import HomeButton from "./HomeButton";
 //CSS
 import "./NameOfPageContainer.css";
 
-const NameOfPageContainer = () => {
+const NameOfPageContainer = (props) => {
   return (
     <Fragment>
       <div className="page-container bg-colors">

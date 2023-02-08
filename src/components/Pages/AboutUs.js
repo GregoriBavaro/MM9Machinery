@@ -12,9 +12,12 @@ import MissionVisionValues from "../UI/MissionVisionValues";
 import BackToTopButton from "../UI/BackToTopButton";
 
 const AboutUs = () => {
-  const name = "about_us";
-  const link = "/";
-  const backName = "home";
+  const currentPageName = "about_us";
+  const previousPageLink = "/";
+  const previousPageName = "home";
+  const homePageName = "home";
+  const homePageLink = "/";
+  const twoButtons = false;
 
   const { t } = useTranslation();
 
@@ -25,7 +28,14 @@ const AboutUs = () => {
     exit={{ opacity: 0 }}
     transition={{ duration: 1 }}
     >
-      <nameContext.Provider value={{ name, link, backName }}>
+      <nameContext.Provider value={{
+          currentPageName,
+          previousPageLink,
+          previousPageName,
+          homePageName,
+          homePageLink,
+          twoButtons,
+        }}>
         <NameOfPageContainer />
       </nameContext.Provider>
       <IconContainer />

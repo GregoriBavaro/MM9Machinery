@@ -42,7 +42,6 @@ const Navbar = () => {
   const onMouseLeave = () => {
     setIsHovered(false);
     window.innerWidth <= 960 ? setDropdown(false) : setDropdown(false);
-    
   };
 
   const onMouseEnterLanguages = () => {
@@ -68,12 +67,24 @@ const Navbar = () => {
         </div>
         <ul className={click ? "nav-menu active" : "nav-menu"}>
           <li className="nav-item">
-            <NavLink to="/" className="nav-links" onClick={closeMobileMenu}>
+            <NavLink
+              style={({ isActive }) => ({
+                borderBottom: isActive ? "5px solid rgb(0, 191, 111)" : "white",
+                paddingBottom: isActive ? "3.7rem" : "0",
+              })}
+              to="/"
+              className="nav-links"
+              onClick={closeMobileMenu}
+            >
               {t("home")}
             </NavLink>
           </li>
           <li className="nav-item">
             <NavLink
+              style={({ isActive }) => ({
+                borderBottom: isActive ? "5px solid rgb(0, 191, 111)" : "white",
+                paddingBottom: isActive ? "3.7rem" : "0",
+              })}
               to="/services"
               className="nav-links"
               onClick={closeMobileMenu}
@@ -83,6 +94,10 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <NavLink
+              style={({ isActive }) => ({
+                borderBottom: isActive ? "5px solid rgb(0, 191, 111)" : "white",
+                paddingBottom: isActive ? "3.7rem" : "0",
+              })}
               to="/about-us"
               className="nav-links"
               onClick={closeMobileMenu}
@@ -96,12 +111,16 @@ const Navbar = () => {
             onMouseLeave={onMouseLeave}
           >
             <NavLink
+              style={({ isActive }) => ({
+                borderBottom: isActive ? "5px solid rgb(0, 191, 111)" : "white",
+                paddingBottom: isActive ? "3.7rem" : "0",
+              })}
               to="/products"
               className="nav-links"
               onClick={closeMobileMenu}
             >
               {t("products")}{" "}
-              <m.i 
+              <m.i
                 animate={{ rotate: isHovered ? 180 : 0 }}
                 className="fas fa-caret-down"
               />
@@ -110,6 +129,10 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <NavLink
+              style={({ isActive }) => ({
+                borderBottom: isActive ? "5px solid rgb(0, 191, 111)" : "white",
+                paddingBottom: isActive ? "3.7rem" : "0",
+              })}
               to="/contact-us"
               className="nav-links"
               onClick={closeMobileMenu}

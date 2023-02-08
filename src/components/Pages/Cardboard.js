@@ -3,19 +3,25 @@ import { nameContext } from "../Hooks/Context";
 import { motion as m } from "framer-motion";
 
 //Components
-import EmailUs from "../UI/EmailUs";
-import ContactUsInfo from "../UI/ContactUsInfo";
 import NameOfPageContainer from "../UI/NameOfPageContainer";
+import IconContainer from "../Layout/Main/IconsContainer";
+import Testimonials from "../Layout/Main/Testimonials";
 import ScrollToTop from "../Helpers/ScrollToTop";
 import BackToTopButton from "../UI/BackToTopButton";
+import Gallery from "../UI/Gallery";
 
-const ContactUs = () => {
-  const currentPageName = "contact";
-  const previousPageLink = "/";
-  const previousPageName = "home";
+//Data
+import data from "../../Data/products.json";
+
+const cardboard = [...data.cardboard];
+
+const Cardboard = () => {
+  const currentPageName = "cardboard";
+  const previousPageLink = "/products";
+  const previousPageName = "all_products";
   const homePageName = "home";
   const homePageLink = "/";
-  const twoButtons = false;
+  const twoButtons = true;
 
   return (
     <m.div
@@ -37,13 +43,12 @@ const ContactUs = () => {
       >
         <NameOfPageContainer />
       </nameContext.Provider>
-      <div className="page-container-main">
-        <EmailUs />
-        <ContactUsInfo />
-      </div>
+      <IconContainer />
+      <Gallery data={cardboard} />
+      <Testimonials />
       <BackToTopButton />
     </m.div>
   );
 };
 
-export default ContactUs;
+export default Cardboard;

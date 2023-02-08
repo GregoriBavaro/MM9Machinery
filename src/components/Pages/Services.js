@@ -8,9 +8,13 @@ import IconContainer from "../Layout/Main/IconsContainer";
 import BackToTopButton from "../UI/BackToTopButton";
 
 const Services = () => {
-  const name = "services";
-  const link = "/";
-  const backName = "home";
+  const currentPageName = "services";
+  const previousPageLink = "/";
+  const previousPageName = "home";
+  const homePageName = "home";
+  const homePageLink = "/";
+  const twoButtons = false;
+
   return (
     <m.div
     initial={{ opacity: 0 }}
@@ -18,7 +22,14 @@ const Services = () => {
     exit={{ opacity: 0 }}
     transition={{ duration: 1 }}
     >
-      <nameContext.Provider value={{ name, link, backName }}>
+      <nameContext.Provider value={{
+          currentPageName,
+          previousPageLink,
+          previousPageName,
+          homePageName,
+          homePageLink,
+          twoButtons,
+        }}>
         <NameOfPageContainer />
       </nameContext.Provider>
       <IconContainer />

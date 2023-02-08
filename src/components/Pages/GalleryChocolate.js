@@ -11,16 +11,28 @@ import BackToTopButton from "../UI/BackToTopButton";
 import data from "../../Data/images.json";
 
 const GalleryChocolate = () => {
-  const name = "gallery_one";
-  const link = "/about-us";
-  const backName = "about_us";
+  const currentPageName = "gallery_one";
+  const previousPageLink = "/about-us";
+  const previousPageName = "about_us";
+  const homePageName = "home";
+  const homePageLink = "/";
+  const twoButtons = true;
 
   const array = [...data.chocolates];
 
   return (
     <div>
       <ScrollToTop />
-      <nameContext.Provider value={{ name, link, backName }}>
+      <nameContext.Provider
+        value={{
+          currentPageName,
+          previousPageLink,
+          previousPageName,
+          homePageName,
+          homePageLink,
+          twoButtons,
+        }}
+      >
         <NameOfPageContainer />
       </nameContext.Provider>
       <Gallery data={array} />

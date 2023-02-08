@@ -12,7 +12,6 @@ import "./AboutWhatWeDo.css";
 //Data
 import { WhatWeDoItems } from "../../Data/WhatWeDoItems";
 
-
 const arrayOfWords = [
   "home and garden",
   "footwear and textile",
@@ -22,13 +21,11 @@ const arrayOfWords = [
   "beverages",
 ];
 
-
-
 const AboutWhatWeDo = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="what-we-do-container">
+    <div className="what-we-do-container shapedividers_com-3946">
       <h1>{t("we_produce_packaging_for")}</h1>
       <ChangeText
         swiperClass="what-we-do-swiper"
@@ -37,12 +34,11 @@ const AboutWhatWeDo = () => {
       />
       <div className="what-we-do-gallery">
         <div className="grid-gallery-container">
-          {WhatWeDoItems.map(({photo, to}) => {
+          {WhatWeDoItems.map(({ photo, to }) => {
             return (
               <Link to={to} key={photo}>
                 <m.div
-                  
-                  whileHover={{ scale: 1.020 }}
+                  whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.9 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   className="grid-item"

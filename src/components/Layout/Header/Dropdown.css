@@ -4,6 +4,7 @@
   top: 90px;
   list-style: none;
   text-align: start;
+  z-index: 1;
 }
 
 .dropdown-menu-languages {
@@ -13,6 +14,7 @@
   right: 0;
   list-style: none;
   text-align: start;
+  z-index: 1;
 }
 
 .dropdown-menu li,
