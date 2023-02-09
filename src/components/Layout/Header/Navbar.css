@@ -38,10 +38,15 @@
   
 }
 
+.active {
+  border-bottom: 5px solid rgb(0, 191, 111);
+  padding-bottom: 3.7rem !important;
+}
+
 .nav-links {
   color: rgb(47, 47, 47);
   text-decoration: none;
-  padding: 1.6rem 1rem;
+  padding: 1.6rem 1rem; 
 }
 
 .nav-links:hover {
@@ -70,6 +75,11 @@
 
   .navbar {
     justify-content: flex-start;
+  }
+
+  .active {
+    border-bottom: 0px solid rgb(0, 191, 111);
+    padding: 2rem !important;
   }
 
   .nav-menu {

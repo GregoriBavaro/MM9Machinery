@@ -6,7 +6,6 @@ import { motion as m } from "framer-motion";
 import EmailUs from "../UI/EmailUs";
 import ContactUsInfo from "../UI/ContactUsInfo";
 import NameOfPageContainer from "../UI/NameOfPageContainer";
-import ScrollToTop from "../Helpers/ScrollToTop";
 import BackToTopButton from "../UI/BackToTopButton";
 
 const ContactUs = () => {
@@ -19,12 +18,16 @@ const ContactUs = () => {
 
   return (
     <m.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 1 }}
+    initial={{ x: 300, opacity: 0 }}
+    animate={{ x: 0, opacity: 1 }}
+    exit={{ x: 300, opacity: 0 }}
+    transition={{
+      type: "spring",
+      stiffness: 260,
+      damping: 20,
+    }}
     >
-      <ScrollToTop />
+      
       <nameContext.Provider
         value={{
           currentPageName,

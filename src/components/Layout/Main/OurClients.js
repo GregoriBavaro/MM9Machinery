@@ -1,5 +1,5 @@
 //Hooks
-// import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 //Components
 import BrandsSwiper from "./BrandsSwiper";
@@ -19,11 +19,11 @@ const brands = [brand1, brand3, brand4, brand5, brand6];
 
 
 const OurClients = () => {
-    // const { t } = useTranslation();
+    const { t } = useTranslation();
 
     return (
         <div className="clients-container">
-            <h3>Trusted by brands</h3>
+            <h3>{t("trusted_by_brands")}</h3>
             <BrandsSwiper  logo={brands}/>
         </div>
     )

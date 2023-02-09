@@ -68,12 +68,10 @@ const Navbar = () => {
         <ul className={click ? "nav-menu active" : "nav-menu"}>
           <li className="nav-item">
             <NavLink
-              style={({ isActive }) => ({
-                borderBottom: isActive ? "5px solid rgb(0, 191, 111)" : "white",
-                paddingBottom: isActive ? "3.7rem" : "0",
-              })}
+              className={({ isActive }) =>
+                isActive ? "nav-links active" : "nav-links "
+              }
               to="/"
-              className="nav-links"
               onClick={closeMobileMenu}
             >
               {t("home")}
@@ -81,12 +79,10 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <NavLink
-              style={({ isActive }) => ({
-                borderBottom: isActive ? "5px solid rgb(0, 191, 111)" : "white",
-                paddingBottom: isActive ? "3.7rem" : "0",
-              })}
+              className={({ isActive }) =>
+                isActive ? "nav-links active" : "nav-links "
+              }
               to="/services"
-              className="nav-links"
               onClick={closeMobileMenu}
             >
               {t("services")}
@@ -94,12 +90,10 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <NavLink
-              style={({ isActive }) => ({
-                borderBottom: isActive ? "5px solid rgb(0, 191, 111)" : "white",
-                paddingBottom: isActive ? "3.7rem" : "0",
-              })}
+              className={({ isActive }) =>
+                isActive ? "nav-links active" : "nav-links "
+              }
               to="/about-us"
-              className="nav-links"
               onClick={closeMobileMenu}
             >
               {t("about_us")}
@@ -111,12 +105,10 @@ const Navbar = () => {
             onMouseLeave={onMouseLeave}
           >
             <NavLink
-              style={({ isActive }) => ({
-                borderBottom: isActive ? "5px solid rgb(0, 191, 111)" : "white",
-                paddingBottom: isActive ? "3.7rem" : "0",
-              })}
+              className={({ isActive }) =>
+                isActive ? "nav-links active" : "nav-links "
+              }
               to="/products"
-              className="nav-links"
               onClick={closeMobileMenu}
             >
               {t("products")}{" "}
@@ -129,12 +121,10 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <NavLink
-              style={({ isActive }) => ({
-                borderBottom: isActive ? "5px solid rgb(0, 191, 111)" : "white",
-                paddingBottom: isActive ? "3.7rem" : "0",
-              })}
+              className={({ isActive }) =>
+                isActive ? "nav-links active" : "nav-links "
+              }
               to="/contact-us"
-              className="nav-links"
               onClick={closeMobileMenu}
             >
               {t("contact")}

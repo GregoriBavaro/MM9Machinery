@@ -1,7 +1,10 @@
 
+
+//Photos
 import heroPhotoOne from "../images/hero/hero (1).jpg";
 import heroPhotoTwo from "../images/hero/hero (2).jpg";
 import heroPhotoThree from "../images/hero/hero (3).jpg";
+
 
 
 export const HeroItems = [
@@ -14,7 +17,7 @@ export const HeroItems = [
         buttonName: "about_us",
         buttonClass: "btn hero-button",
         divClass: "promo",
-        promo: "Reliable service you can trust"
+        promo: "reliable"
         
     },
     {
@@ -26,7 +29,7 @@ export const HeroItems = [
         buttonName: "contact",
         buttonClass: "btn hero-button",
         divClass: "promo",
-        promo: "Responsive and knowledgeable"
+        promo: "responsive"
         
     },
     {
@@ -38,7 +41,7 @@ export const HeroItems = [
         buttonName: "services",
         buttonClass: "btn hero-button",
         divClass: "promo",
-        promo: "Custom-made packaging"
+        promo: "custom"
         
     }
 ]

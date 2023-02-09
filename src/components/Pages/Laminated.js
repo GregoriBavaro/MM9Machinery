@@ -6,7 +6,6 @@ import { motion as m } from "framer-motion";
 import NameOfPageContainer from "../UI/NameOfPageContainer";
 import IconContainer from "../Layout/Main/IconsContainer";
 import Testimonials from "../Layout/Main/Testimonials";
-import ScrollToTop from "../Helpers/ScrollToTop";
 import BackToTopButton from "../UI/BackToTopButton";
 import Gallery from "../UI/Gallery";
 
@@ -25,12 +24,15 @@ const Laminated = () => {
 
   return (
     <m.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 1 }}
+      initial={{ x: 300, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: 300, opacity: 0 }}
+      transition={{
+        type: "spring",
+        stiffness: 260,
+        damping: 20,
+      }}
     >
-      <ScrollToTop />
       <nameContext.Provider
         value={{
           currentPageName,
@@ -43,7 +45,7 @@ const Laminated = () => {
       >
         <NameOfPageContainer />
       </nameContext.Provider>
-      <IconContainer />
+      <IconContainer container={"main-info-container"} />
       <Gallery data={laminated} />
       <Testimonials />
       <BackToTopButton />

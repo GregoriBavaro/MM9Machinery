@@ -11,6 +11,7 @@
 
 .what-we-do-container h1 {
   width: 100%;
+  z-index: 5;
 }
 
 .what-we-do-container h1::after {
@@ -47,6 +48,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
+  z-index: 5;
 }
 
 .grid-item {
@@ -67,4 +69,30 @@
 .grid-item img {
   width: 100%;
   height: 100%;
+}
+
+.shapedividers_com-9678 {
+  overflow: hidden;
+  position: relative;
+}
+.shapedividers_com-9678::before {
+  content: "";
+  font-family: "shape divider from ShapeDividers.com";
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  bottom: -0.1vw;
+  left: -0.1vw;
+  right: -0.1vw;
+  top: -0.1vw;
+  background-size: 138% 400px;
+  background-position: 50% 0%;
+  background-image: url('data:image/svg+xml;charset=utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.278 3.527" preserveAspectRatio="none"><path d="M0 1.064v.125a82.946 82.946 0 0035.278-.007v-.125A82.783 82.783 0 010 1.064M0 .45V.7A83.105 83.105 0 0035.278.693v-.25A82.777 82.777 0 010 .45M33.252 0a82.855 82.855 0 01-31.26 0H0v.092A83.44 83.44 0 0035.278.085V0zm-10.8 0h8.84A84.249 84.249 0 013.952 0h8.839zM0 1.557v.075a82.878 82.878 0 0035.278-.007V1.55A82.771 82.771 0 010 1.557" fill="%23f2eee9"/></svg>');
+}
+
+@media (min-width: 2100px) {
+  .shapedividers_com-9678::before {
+    background-size: 138% calc(2vw + 400px);
+  }
 }

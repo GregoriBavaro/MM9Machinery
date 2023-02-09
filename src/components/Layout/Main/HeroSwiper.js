@@ -15,7 +15,7 @@ const HeroSwiper = (props) => {
   const arrayOfPhotos = props.array;
 
   return (
-    <Splide className={props.heroContainer}
+    <Splide className={`${props.heroContainer} shapedividers_com-9433`}
       options={{
         rewind: true,
         gap: "0",
@@ -44,7 +44,7 @@ const HeroSwiper = (props) => {
           return (
             <SplideSlide className={classSlide} key={index}>
               <div className={divClass}>
-                <h1>{promo}</h1>
+                <h1>{t(promo)}</h1>
                 <GlobalButton
                   name={t(buttonName)}
                   to={to}

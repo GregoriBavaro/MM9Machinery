@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: row;
   background-color: rgb(242, 238, 233);
+  padding: 2rem;
 }
 
 .section-inner_left {
@@ -22,11 +23,11 @@
 }
 
 .clip-path_left-to-right {
-  clip-path: polygon(19% 0, 100% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
 }
 
 .clip-path_right-to-left {
-  clip-path: polygon(0 0, 100% 0%, 81% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
 }
 
 .section-inner_right img {
@@ -64,6 +65,7 @@
   .section-container {
     flex-direction: column;
     min-height: 60vh;
+    padding: 0;
   }
 
   .section-inner_left {

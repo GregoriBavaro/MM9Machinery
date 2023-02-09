@@ -18,7 +18,9 @@ const Main = () => {
       <HeroShapeDivider />
       <VerticalSlide />
       <OurClients />
-      <OurPackages />
+      <OurPackages
+        display={"swiper"}
+      />
       <Testimonials />
     </Fragment>
   );

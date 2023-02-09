@@ -62,7 +62,7 @@
   
 }
 #container button.learn-more-button {
-  width: 10rem;
+  width: 11rem;
   height: auto;
   
 }
@@ -125,7 +125,7 @@
   text-align: center;
 }
 #container button:hover .circle {
-  width: 100%;
+  width: 110%;
 }
 #container button:hover .circle .icon.arrow {
   background: rgb(0, 191, 111);

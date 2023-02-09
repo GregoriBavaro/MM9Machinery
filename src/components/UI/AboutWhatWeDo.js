@@ -25,7 +25,7 @@ const AboutWhatWeDo = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="what-we-do-container shapedividers_com-3946">
+    <div className="what-we-do-container shapedividers_com-9678">
       <h1>{t("we_produce_packaging_for")}</h1>
       <ChangeText
         swiperClass="what-we-do-swiper"

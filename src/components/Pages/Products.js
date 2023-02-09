@@ -6,9 +6,8 @@ import { motion as m } from "framer-motion";
 import NameOfPageContainer from "../UI/NameOfPageContainer";
 import IconContainer from "../Layout/Main/IconsContainer";
 import Testimonials from "../Layout/Main/Testimonials";
-import ScrollToTop from "../Helpers/ScrollToTop";
 import BackToTopButton from "../UI/BackToTopButton";
-import Gallery from "../UI/Gallery";
+import OurPackages from "../Layout/Main/OurPackages";
 
 //Data
 import data from "../../Data/products.json";
@@ -25,24 +24,31 @@ const Products = () => {
 
   return (
     <m.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 1 }}
+      initial={{ x: 300, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: 300, opacity: 0 }}
+      transition={{
+        type: "spring",
+        stiffness: 260,
+        damping: 20,
+      }}
     >
-      <ScrollToTop />
-      <nameContext.Provider value={{
+      <nameContext.Provider
+        value={{
           currentPageName,
           previousPageLink,
           previousPageName,
           homePageName,
           homePageLink,
           twoButtons,
-        }}>
+        }}
+      >
         <NameOfPageContainer />
       </nameContext.Provider>
-      <IconContainer />
-      <Gallery data={allProducts} />
+      <IconContainer container={"main-info-container"} />
+      <OurPackages
+        display={"gallery"}
+      />
       <Testimonials />
       <BackToTopButton />
     </m.div>

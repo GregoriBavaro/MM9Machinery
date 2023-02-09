@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router } from "react-router-dom";
+
 
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
@@ -21,9 +23,13 @@ i18n
       caches: ["cookie"],
     },
     backend: {
-      loadPath: "/assets/locales/{{lng}}/translation.json", 
+      loadPath: "/assets/locales/{{lng}}/translation.json",
     },
   });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+root.render(
+  <Router>
+    <App />
+  </Router>
+);

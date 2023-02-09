@@ -4,6 +4,11 @@
   background-color: rgb(245, 245, 245);
 }
 
+.main-info-container-hero {
+  width: 100%;
+  display: flex;
+}
+
 .info-child {
   max-width: 100%;
   padding: 2rem 0;
@@ -11,11 +16,12 @@
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(3, 1fr);
+  gap: 3rem
 }
 
 .info-child-inner {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
   flex-direction: row;
@@ -24,7 +30,6 @@
 .info-child-inner img {
   width: 2.2rem;
 }
-
 
 .info-child-inner h3 {
   color: rgb(47, 47, 47);
@@ -36,9 +41,13 @@
   .main-info-container {
     display: none;
   }
-  
+
+  .info-child {
+    max-width: 100%;
+    padding: 1rem 0;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .info-child-inner {
+    justify-content: center;
+  }
 }
-
-
-
-
