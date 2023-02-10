@@ -128,7 +128,7 @@
 .footer-container-sign {
   display: flex;
   background-color: whitesmoke;
-  justify-content: center;
+  justify-content: space-around;
   height: 2rem;
   width: 100%;
 }
@@ -144,6 +144,12 @@
 
 .footer-bottom-info-container__social-media h3 {
   padding-left: 0.7rem;
+}
+
+.gam a {
+  text-decoration: none;
+  font-weight: bold;
+  color: orange;
 }
 
 
@@ -171,6 +177,12 @@
   }
 
   
+}
+
+@media (max-width: 575px) {
+  .footer-container-sign p {
+    font-size: 3vw;
+  }
 }
 
 @media (max-width: 530px) {
