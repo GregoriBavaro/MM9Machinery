@@ -150,7 +150,7 @@ button:disabled:active {
 
 .splide__arrow--prev svg,
 .splide__arrow--next svg {
-  fill: rgb(0, 191, 111) !important;
+  fill: whitesmoke !important;
 }
 
 .splide__pagination__page {

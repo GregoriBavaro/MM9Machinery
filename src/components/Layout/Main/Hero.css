@@ -4,67 +4,113 @@
 
 .hero-container {
   width: 100%;
-  flex: 100%;
 }
 
 .hero-slide {
-  position: relative;
   width: 100%;
-  max-height: 65vh;
-  background-color: whitesmoke;
-}
-
-.hero-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.promo {
-  position: absolute;
-  z-index: 10;
-  color: white;
-  font-size: 1rem;
-  left: 3%;
-  bottom: 28%;
+  max-height: 90vh;
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 18vh 6%;
+  gap: 5rem;
+}
+
+.background-color-slide {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 191, 111, 1) 67%,
+    rgba(0, 185, 107, 1) 67%
+  );
+}
+
+
+.hero-slide__left {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 100%;
+}
+
+.hero-slide__left img {
+  max-width: 100%;
+  width: 500px;
+}
+
+.hero-slide__right {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   flex-direction: column;
+  flex: 100%;
   gap: 1rem;
+}
+
+.hero-slide__right h1 {
+  color: whitesmoke;
+  font-family: "BebasNeue", Helvetica, Arial, Lucida, sans-serif;
+}
+
+.hero-slide__right p {
+  color: whitesmoke;
 }
 
 .hero-button {
   z-index: 10;
-  width: 180px;
-  height: 60px;
+  width: fit-content;
+  padding: 0.5rem 2rem;
+  height: fit-content;
   font-size: 18px;
   border: 3px solid white;
   font-weight: bold;
+  text-align: center;
+  background-color: transparent;
+}
+
+.hero-button:hover {
+  color: whitesmoke;
+  border-color: whitesmoke;
+  background-color: rgba(245, 245, 245, 0.404);
 }
 
 @media (max-width: 960px) {
-  .hero-container-main {
+  .hero-slide {
     flex-direction: column;
+    justify-content: space-around;
+    padding: 2vh 6%;
+    gap: 2rem;
   }
 
-  .promo {
-    bottom: 10%;
+  .hero-slide__left {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: 52vh;
+  }
+
+  .hero-slide__right {
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
   }
 }
 
-@media (max-width: 376px) {
-  .promo {
-    font-size: 0.6rem;
+@media (max-width: 450px) {
+  .hero-slide__left {
+    display: none;
+  }
+
+  .hero-slide {
+    min-height: 40vh;
+  }
+
+  .hero-slide__right {
+    justify-content: center;
+  }
+
+  .hero-slide__right h1 {
+    font-size: 1.2rem;
   }
 }
 
-@media (max-width: 420px) {
-  .promo {
-    font-size: 0.7rem;
-  }
 
-  .hero-button {
-    height: 40px;
-    font-size: 15px;
-    width: 100px;
-  }
-}

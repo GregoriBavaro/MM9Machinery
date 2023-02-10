@@ -6,6 +6,7 @@ import Main from "../Layout/Main/Main";
 import Hero from "../Layout/Main/Hero";
 import BackToTopButton from "../UI/BackToTopButton";
 
+
 const Home = () => {
   return (
     <m.div

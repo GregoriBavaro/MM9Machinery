@@ -6,6 +6,7 @@ import HeroShapeDivider from "../../UI/HeroShapeDivider";
 import VerticalSlide from "./VerticalSlide";
 import OurClients from "./OurClients";
 import OurPackages from "../../Layout/Main/OurPackages";
+import SectionContact from "./SectionContact";
 
 //CSS
 import "../../UI/HeroShapeDivider.css";
@@ -22,6 +23,7 @@ const Main = () => {
         display={"swiper"}
       />
       <Testimonials />
+      <SectionContact />
     </Fragment>
   );
 };

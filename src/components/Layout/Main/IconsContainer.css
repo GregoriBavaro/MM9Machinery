@@ -16,7 +16,7 @@
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3rem
+  gap: 3rem;
 }
 
 .info-child-inner {
@@ -42,6 +42,11 @@
     display: none;
   }
 
+  .main-info-container-hero {
+    background-color: rgb(242, 238, 233);
+    height: 10vh;
+  }
+
   .info-child {
     max-width: 100%;
     padding: 1rem 0;
@@ -49,5 +54,6 @@
   }
   .info-child-inner {
     justify-content: center;
+    align-items: flex-end;
   }
 }
