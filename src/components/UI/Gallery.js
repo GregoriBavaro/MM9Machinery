@@ -18,7 +18,10 @@ const Gallery = (props) => {
     handleClick,
     clickedImg,
     setClickedImg,
+    galleryLength,
+    currentIndex
   } = useLightBox(data);
+
 
   return (
     <div className="gallery-container">
@@ -38,6 +41,9 @@ const Gallery = (props) => {
               handelRotationRight={handelRotationRight}
               setClickedImg={setClickedImg}
               handelRotationLeft={handelRotationLeft}
+              currentIndex={currentIndex}
+              galleryLength={galleryLength}
+
             />
           )}
         </AnimatePresence>

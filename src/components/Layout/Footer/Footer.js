@@ -84,7 +84,7 @@ const Footer = () => {
           Machinery.
         </p>
         <p className="gam">
-          Website by: <a href="/">GAM</a>
+          Website by: <a href="/">GDD</a>
         </p>
       </div>
     </Fragment>

@@ -6,6 +6,8 @@ import "./OurClients.css";
 import "@splidejs/react-splide/css/sea-green";
 
 const BrandsSwiper = (props) => {
+
+  
   return (
     <Splide
       options={{
@@ -26,10 +28,10 @@ const BrandsSwiper = (props) => {
         }
       }}
     >
-      {props.logo.map((logo) => {
+      {props.logo.map((partners, index) => {
         return (
-          <SplideSlide className="clients-slides" key={logo}>
-            <img src={logo} className="clients-logo" alt="photo" />
+          <SplideSlide className="clients-slides" key={index}>
+            <img src={partners.link} className="clients-logo" alt="photo" />
           </SplideSlide>
         );
       })}

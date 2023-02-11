@@ -4,6 +4,9 @@ const useLightBox = (data) => {
   const [clickedImg, setClickedImg] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
 
+  let galleryLength = data.length;
+  
+
   const handleClick = (item, index) => {
     setCurrentIndex(index);
     setClickedImg(item.link);
@@ -50,7 +53,8 @@ const useLightBox = (data) => {
     clickedImg: clickedImg,
     setClickedImg: setClickedImg,
     currentIndex: currentIndex,
-    setCurrentIndex: setCurrentIndex
+    setCurrentIndex: setCurrentIndex,
+    galleryLength: galleryLength
   }
 };
 

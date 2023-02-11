@@ -40,6 +40,8 @@ const OurPackages = (props) => {
     handleClick,
     clickedImg,
     setClickedImg,
+    currentIndex,
+    galleryLength
   } = useLightBox(data);
 
   const dropDownMenuHandler = () => {
@@ -217,6 +219,8 @@ const OurPackages = (props) => {
             handelRotationRight={handelRotationRight}
             setClickedImg={setClickedImg}
             handelRotationLeft={handelRotationLeft}
+            galleryLength={galleryLength}
+            currentIndex={currentIndex}
           />
         )}
       </AnimatePresence>

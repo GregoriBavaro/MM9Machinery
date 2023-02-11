@@ -7,16 +7,10 @@ import BrandsSwiper from "./BrandsSwiper";
 //Css
 import "./OurClients.css"
 
-//Imgs
-import brand1 from "../../../images/brands/burger-king.png"
-import brand3 from "../../../images/brands/coca-cola.png"
-import brand4 from "../../../images/brands/redbull.png"
-import brand5 from "../../../images/brands/mcdonalds.png"
-import brand6 from "../../../images/brands/hummer.png"
+//Data
+import data from "../../../Data/partnersAndClients.json";
 
-
-const brands = [brand1, brand3, brand4, brand5, brand6];
-
+const clients = [...data.clients];
 
 const OurClients = () => {
     const { t } = useTranslation();
@@ -24,7 +18,7 @@ const OurClients = () => {
     return (
         <div className="clients-container">
             <h3>{t("trusted_by_brands")}</h3>
-            <BrandsSwiper  logo={brands}/>
+            <BrandsSwiper  logo={clients} />
         </div>
     )
 }

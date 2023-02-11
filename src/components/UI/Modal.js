@@ -13,6 +13,8 @@ const Modal = ({
   setClickedImg,
   handelRotationRight,
   handelRotationLeft,
+  galleryLength,
+  currentIndex
 }) => {
   
   if (clickedImg) {
@@ -65,6 +67,11 @@ const Modal = ({
       className="overlay dismiss"
       onClick={handleClick}
     >
+      <div className="img-info">
+        <span>{galleryLength}</span>
+        <span>/</span>
+        <span>{currentIndex + 1}</span>
+      </div>
       <div className="dismiss backArrow">
         <m.img 
           onClick={handleClick}

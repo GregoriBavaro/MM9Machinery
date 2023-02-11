@@ -1,0 +1,31 @@
+{
+    "partners": [
+      {
+        "link": "https://i.postimg.cc/hPf7dZwZ/burger-king.png"
+      },
+      {
+        "link": "https://i.postimg.cc/c1KnK5P9/coca-cola.png"
+      },
+      {
+        "link": "https://i.postimg.cc/MprwjtC5/mcdonalds.png"
+      },
+      {
+        "link": "https://i.postimg.cc/X77tcdcz/hummer.png"
+      }
+    ],
+    "clients": [
+        {
+          "link": "https://i.postimg.cc/hPf7dZwZ/burger-king.png"
+        },
+        {
+          "link": "https://i.postimg.cc/c1KnK5P9/coca-cola.png"
+        },
+        {
+          "link": "https://i.postimg.cc/MprwjtC5/mcdonalds.png"
+        },
+        {
+          "link": "https://i.postimg.cc/X77tcdcz/hummer.png"
+        }
+      ]
+}
+

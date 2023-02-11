@@ -20,9 +20,11 @@ body {
   overflow-y: hidden;
 }
 
+
 .display-none {
   display: none;
 }
+
 
 .divider-div-container {
   display: flex;

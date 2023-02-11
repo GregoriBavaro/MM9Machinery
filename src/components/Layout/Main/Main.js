@@ -1,5 +1,6 @@
 //Hooks
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
+
 
 //Components
 import HeroShapeDivider from "../../UI/HeroShapeDivider";
@@ -14,16 +15,16 @@ import "./Main.css";
 import Testimonials from "./Testimonials";
 
 const Main = () => {
+  
   return (
     <Fragment>
       <HeroShapeDivider />
       <VerticalSlide />
       <OurClients />
-      <OurPackages
-        display={"swiper"}
-      />
+      <OurPackages display={"swiper"} />
       <Testimonials />
       <SectionContact />
+
     </Fragment>
   );
 };
