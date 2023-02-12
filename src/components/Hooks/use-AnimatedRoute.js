@@ -13,6 +13,7 @@ import GalleryBeer from "../Pages/GalleryBeer";
 import Laminated from "../Pages/Laminated";
 import Transport from "../Pages/Transport";
 import Cardboard from "../Pages/Cardboard";
+import AdminPanel from "../Pages/AdminPanel"
 
 const AnimatedRoute = () => {
   const location = useLocation();
@@ -42,6 +43,7 @@ const AnimatedRoute = () => {
         <Route path="products/laminated" element={<Laminated />} />
         <Route path="products/transport" element={<Transport />} />
         <Route path="products/cardboard" element={<Cardboard />} />
+        <Route path="/master-admin" element={<AdminPanel />} />
       </Routes>
     </AnimatePresence>
   );

@@ -4,7 +4,7 @@ import useInput from "../Hooks/use-input";
 import Notifications from "../Hooks/use-notifications";
 import emailjs from "@emailjs/browser";
 import { useTranslation } from "react-i18next";
-import { ToastContainer } from "react-toastify"
+import { ToastContainer } from "react-toastify";
 
 //Components
 import SubmitButton from "./SubmitButton";
@@ -17,10 +17,10 @@ const EmailUs = () => {
   const { t } = useTranslation();
   const form = useRef();
 
-  const {
-    notify200,
-    notify400
-  } = Notifications();
+  const { notify200, notify400 } = Notifications(
+    "email_notification_200",
+    "email_notification_400"
+  );
 
   const {
     value: enteredName,
@@ -54,7 +54,6 @@ const EmailUs = () => {
   if (enteredNameIsValid && enteredEmailIsValid && enteredMessageIsValid) {
     formIsValid = true;
   }
-
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -140,7 +139,7 @@ const EmailUs = () => {
           )}
         </div>
         <div className="form-button-container">
-            <SubmitButton dis={!formIsValid}> {t("send")}</SubmitButton>
+          <SubmitButton dis={!formIsValid}> {t("send")}</SubmitButton>
         </div>
       </form>
 

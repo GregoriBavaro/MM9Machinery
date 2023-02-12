@@ -10,9 +10,9 @@ import BackToTopButton from "../UI/BackToTopButton";
 import OurPackages from "../Layout/Main/OurPackages";
 
 //Data
-import data from "../../Data/products.json";
+// import data from "../../Data/products.json";
 
-const allProducts = [...data.laminated, ...data.cardboard, ...data.transport];
+// const allProducts = [...data.laminated, ...data.cardboard, ...data.transport];
 
 const Products = () => {
   const currentPageName = "products";

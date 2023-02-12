@@ -1,5 +1,6 @@
 .btn {
   width: fit-content;
+  min-width: 180px;
   height: 60px;
   cursor: pointer;
   background: transparent;

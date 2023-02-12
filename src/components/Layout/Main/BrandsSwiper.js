@@ -18,8 +18,6 @@ const BrandsSwiper = (props) => {
         resetProgress: false,
         pagination: false,
         arrows: false,
-        pauseOnHover: false,
-        resetProgress: false,
         perPage: 3,
         breakpoints: {
           660: {
@@ -31,7 +29,7 @@ const BrandsSwiper = (props) => {
       {props.logo.map((partners, index) => {
         return (
           <SplideSlide className="clients-slides" key={index}>
-            <img src={partners.link} className="clients-logo" alt="photo" />
+            <img src={partners.link} className="clients-logo" alt="partner logo" />
           </SplideSlide>
         );
       })}

@@ -4,12 +4,12 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 
-const Notifications = () => {
+const Notifications = (success, error) => {
 
   const { t } = useTranslation();
 
   const notify200 = () =>
-    toast.success(t("email_notification_200"), {
+    toast.success(t(success), {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: true,
@@ -21,7 +21,7 @@ const Notifications = () => {
     });
 
   const notify400 = () =>
-    toast.error(t("email_notification_400"), {
+    toast.error(t(error), {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: true,

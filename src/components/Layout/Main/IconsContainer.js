@@ -12,7 +12,7 @@ import "@splidejs/react-splide/css/sea-green";
 import { infoItems } from "../../../Data/InfoItems";
 
 const MainInfo = (props) => {
-  const { height, width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   
 
   const { t } = useTranslation();

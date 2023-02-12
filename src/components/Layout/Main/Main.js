@@ -1,6 +1,5 @@
 //Hooks
-import { Fragment, useEffect } from "react";
-
+import { Fragment } from "react";
 
 //Components
 import HeroShapeDivider from "../../UI/HeroShapeDivider";
@@ -24,7 +23,6 @@ const Main = () => {
       <OurPackages display={"swiper"} />
       <Testimonials />
       <SectionContact />
-
     </Fragment>
   );
 };
