@@ -23,14 +23,14 @@
     "your_email": "Your e-mail",
     "text_label": "Your message",
     "admin_name": "Administrator",
-    "admin_password": "Master Password",
+    "admin_password": "Password",
     "send": "Send",
     "login": "login",
     "name_must_not_be_empty": "Name must not be empty.",
     "please_enter_a_valid_email": "Please enter a valid email.",
     "please_enter_a_message": "Please enter a message.",
     "please_enter_a_valid_password": "Please enter a valid password",
-    "administrator_must_not_be_empty": "Please enter a valid name.",
+    "administrator_must_not_be_empty": "Please enter a valid name",
     "find_us": "Find us",
     "call_us": "Call us",
     "email_us": "Email us",
@@ -60,7 +60,8 @@
     "reliable": "Reliable service you can trust",
     "responsive": "Responsive and knowledgeable",
     "custom": "Custom-made packaging",
-    "our_partners": "Our partners"
+    "our_partners": "Our partners",
+    "not_found": "page not found"
 
     
   }

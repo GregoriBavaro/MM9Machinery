@@ -51,6 +51,7 @@ const AboutWhatWeDo = () => {
         </div>
       </div>
     </div>
+    
   );
 };
 

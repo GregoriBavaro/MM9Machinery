@@ -13,11 +13,12 @@ import GalleryBeer from "../Pages/GalleryBeer";
 import Laminated from "../Pages/Laminated";
 import Transport from "../Pages/Transport";
 import Cardboard from "../Pages/Cardboard";
-import AdminPanel from "../Pages/AdminPanel"
+import AdminPanel from "../Pages/AdminPanel";
+import NotFound from "../Pages/NotFound";
 
 const AnimatedRoute = () => {
   const location = useLocation();
-  
+
   return (
     <AnimatePresence
       mode="wait"
@@ -32,18 +33,21 @@ const AnimatedRoute = () => {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/products" element={<Products />} />
+        <Route path="/products">
+          <Route index element={<Products />} />
+          <Route path="laminated" element={<Laminated />} />
+          <Route path="transport" element={<Transport />} />
+          <Route path="cardboard" element={<Cardboard />} />
+        </Route>
         <Route path="/services" element={<Services />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route
-          path="about-us/galleryChocolate"
-          element={<GalleryChocolate />}
-        />
-        <Route path="about-us/galleryBeer" element={<GalleryBeer />} />
-        <Route path="products/laminated" element={<Laminated />} />
-        <Route path="products/transport" element={<Transport />} />
-        <Route path="products/cardboard" element={<Cardboard />} />
+        <Route path="/about-us">
+          <Route index element={<AboutUs />} />
+          <Route path="galleryChocolate" element={<GalleryChocolate />} />
+          <Route path="galleryBeer" element={<GalleryBeer />} />
+        </Route>
+
         <Route path="/master-admin" element={<AdminPanel />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
   );

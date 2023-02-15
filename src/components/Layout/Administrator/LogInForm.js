@@ -1,8 +1,7 @@
 //Hooks
-import { Fragment, useRef } from "react";
+import { Fragment, useRef, useState } from "react";
 import useInput from "../../Hooks/use-input";
 import { useTranslation } from "react-i18next";
-
 
 //CSS
 import "./LogInForm.css";
@@ -13,6 +12,7 @@ import SubmitButton from "../../UI/SubmitButton";
 const LogInForm = () => {
   const { t } = useTranslation();
   const form = useRef();
+  const [loginScreenVisible, setLoginScreenVisible] = useState(true);
 
   const {
     value: enteredName,
@@ -48,6 +48,7 @@ const LogInForm = () => {
 
     resetNameInput();
     resetPasswordInput();
+    setLoginScreenVisible(false);
   };
 
   const nameInputClasses = nameInputHasError
@@ -72,8 +73,10 @@ const LogInForm = () => {
               value={enteredName}
             />
             {nameInputHasError && (
-            <p className="error-text">{t("administrator_must_not_be_empty")}</p>
-          )}
+              <p className="error-text">
+                {t("administrator_must_not_be_empty")}
+              </p>
+            )}
           </div>
           <div className={passwordInputClasses}>
             <label htmlFor="password">{t("admin_password")}</label>
@@ -85,15 +88,14 @@ const LogInForm = () => {
               value={enteredPassword}
             />
             {passwordInputHasError && (
-            <p className="error-text">{t("please_enter_a_valid_password")}</p>
-          )}
+              <p className="error-text">{t("please_enter_a_valid_password")}</p>
+            )}
           </div>
           <div className="form-button-container">
             <SubmitButton dis={!formIsValid}> {t("login")}</SubmitButton>
-        </div>
+          </div>
         </form>
       </div>
-
     </Fragment>
   );
 };
