@@ -1,5 +1,72 @@
+.admin-responsive-container {
+  width: 100%;
+  max-height: 70vh;
+  overflow: auto;
+}
 
-.login-form-container {
-    width: 40%;
-    max-width: 30rem;
-}   
+.login-form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.login-form-wrapper form {
+  width: 40%;
+  max-width: 30rem;
+}
+
+.login-form-wrapper h1 {
+  font-size: 1.5rem;
+  color: rgb(0, 191, 111);
+}
+
+.fetch-error-message, .fetch-success-message {
+  border: 2px solid red;
+  border-radius: 0.4rem;
+  background-color: rgb(245, 245, 245);
+  padding: 2rem;
+  position: absolute;
+  top: 17%;
+  right: 3%;
+  text-align: center;
+}
+
+.fetch-success-message {
+  border: 2px solid rgb(0, 191, 111);
+}
+
+.fetch-error-message h4 {
+  color: red;
+  margin-bottom: 0.3rem;
+}
+
+.fetch-success-message h4 {
+  color: rgb(0, 191, 111);
+  margin-bottom: 0.3rem;
+}
+
+.fetch-error-message button, .fetch-success-message button {
+  position: absolute;
+  top: 5%;
+  right: 2%;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.fetch-error-message button:hover {
+  color: red;
+}
+
+.fetch-success-message button:hover {
+  color: rgb(0, 191, 111);
+}
+
+@media (max-width: 880px) {
+  .login-form-wrapper form {
+    width: 80%;
+  }
+}
+
+

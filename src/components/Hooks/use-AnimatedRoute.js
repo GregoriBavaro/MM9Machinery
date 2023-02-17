@@ -2,6 +2,7 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
+
 //Pages
 import ContactUs from "../Pages/ContactUs";
 import Home from "../Pages/Home";
@@ -46,7 +47,7 @@ const AnimatedRoute = () => {
           <Route path="galleryBeer" element={<GalleryBeer />} />
         </Route>
 
-        <Route path="/master-admin" element={<AdminPanel />} />
+        <Route path="/master-admin/*" element={<AdminPanel />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>

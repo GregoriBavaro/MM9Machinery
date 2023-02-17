@@ -1,10 +1,15 @@
 //Hooks
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useRef } from "react";
 import useInput from "../../Hooks/use-input";
+import useHttp from "../../Hooks/use-http";
 import { useTranslation } from "react-i18next";
+import { BallTriangle } from "react-loader-spinner";
+import { AnimatePresence } from "framer-motion";
+import Notifications from "../../Hooks/use-customNotifications";
 
 //CSS
 import "./LogInForm.css";
+import "../../UI/EmailUs.css";
 
 //Components
 import SubmitButton from "../../UI/SubmitButton";
@@ -12,7 +17,6 @@ import SubmitButton from "../../UI/SubmitButton";
 const LogInForm = () => {
   const { t } = useTranslation();
   const form = useRef();
-  const [loginScreenVisible, setLoginScreenVisible] = useState(true);
 
   const {
     value: enteredName,
@@ -32,23 +36,37 @@ const LogInForm = () => {
     reset: resetPasswordInput,
   } = useInput((value) => value.trim() !== "");
 
+  const {
+    isLoading,
+    error,
+    setError,
+    success,
+    setSuccess,
+    sendRequest: postUser,
+  } = useHttp();
+
   let formIsValid = false;
 
   if (enteredNameIsValid && enteredPasswordIsValid) {
     formIsValid = true;
   }
 
-  const formSubmissionHandler = (e) => {
+  const formSubmissionHandler = async (e) => {
     e.preventDefault();
 
     if (!formIsValid) {
       return;
     }
-    console.log(enteredName);
+
+    postUser({
+      url: "https://mm9m-post-form-default-rtdb.firebaseio.com/user.json",
+      method: "POST",
+      body: { name: enteredName, password: enteredPassword },
+      headers: { "Contend-Type": "application/json" },
+    });
 
     resetNameInput();
     resetPasswordInput();
-    setLoginScreenVisible(false);
   };
 
   const nameInputClasses = nameInputHasError
@@ -61,40 +79,86 @@ const LogInForm = () => {
 
   return (
     <Fragment>
-      <div className="login-form-container">
-        <form ref={form} onSubmit={formSubmissionHandler}>
-          <div className={nameInputClasses}>
-            <label htmlFor="name">{t("admin_name")}</label>
-            <input
-              type="text"
-              id="name"
-              onChange={nameChangedHandler}
-              onBlur={nameBlurHandler}
-              value={enteredName}
-            />
-            {nameInputHasError && (
-              <p className="error-text">
-                {t("administrator_must_not_be_empty")}
-              </p>
-            )}
-          </div>
-          <div className={passwordInputClasses}>
-            <label htmlFor="password">{t("admin_password")}</label>
-            <input
-              type="password"
-              id="password"
-              onChange={passwordChangedHandler}
-              onBlur={passwordBlurHandler}
-              value={enteredPassword}
-            />
-            {passwordInputHasError && (
-              <p className="error-text">{t("please_enter_a_valid_password")}</p>
-            )}
-          </div>
-          <div className="form-button-container">
-            <SubmitButton dis={!formIsValid}> {t("login")}</SubmitButton>
-          </div>
-        </form>
+      {isLoading && (
+        <div className="loading">
+          <BallTriangle
+            height={100}
+            width={100}
+            radius={5}
+            color="#4fa94d"
+            ariaLabel="ball-triangle-loading"
+            wrapperClass={{}}
+            wrapperStyle=""
+            visible={true}
+          />
+        </div>
+      )}
+      <AnimatePresence mode="wait">
+        {!isLoading &&
+          error &&
+          Notifications(
+            {
+              key: "fetch-error-message",
+              className: "fetch-error-message",
+              h4: "Error",
+              p: "Something went wrong!",
+            },
+            setError
+          )}
+        {!isLoading &&
+          success &&
+          Notifications(
+            {
+              key: "fetch-success-message",
+              className: "fetch-success-message",
+              h4: "Success",
+              p: "Successfully logged in!",
+            },
+            setSuccess
+          )}
+      </AnimatePresence>
+
+      <div className="admin-responsive-container">
+        <div className="login-form-wrapper">
+          <form ref={form} onSubmit={formSubmissionHandler}>
+            <h1>{t("log_in")}</h1>
+            <div className={nameInputClasses}>
+              <label htmlFor="name">{t("admin_name")}</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                onChange={nameChangedHandler}
+                onBlur={nameBlurHandler}
+                value={enteredName}
+              />
+              {nameInputHasError && (
+                <p className="error-text">
+                  {t("administrator_must_not_be_empty")}
+                </p>
+              )}
+            </div>
+            <div className={passwordInputClasses}>
+              <label htmlFor="password">{t("admin_password")}</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                onChange={passwordChangedHandler}
+                onBlur={passwordBlurHandler}
+                value={enteredPassword}
+              />
+              {passwordInputHasError && (
+                <p className="error-text">
+                  {t("please_enter_a_valid_password")}
+                </p>
+              )}
+            </div>
+            <div className="form-button-container">
+              <SubmitButton dis={!formIsValid}> {t("login")}</SubmitButton>
+            </div>
+          </form>
+        </div>
       </div>
     </Fragment>
   );

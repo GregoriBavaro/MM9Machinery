@@ -39,7 +39,7 @@
   padding: 2rem;
   display: flex;
   justify-content: center;
-  align-self: center;
+  align-items: center;
 }
 
 .grid-gallery-container {

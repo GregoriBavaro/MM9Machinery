@@ -97,16 +97,13 @@ button:disabled:active {
   padding: 2rem;
 }
 
-
-/* Admin panel container */
-
-.admin-panel-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  min-height: 70vh
+.loading {
+  position: fixed;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
+
 
 /* Shape bottom-to-top */
 

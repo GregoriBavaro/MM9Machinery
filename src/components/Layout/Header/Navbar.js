@@ -3,6 +3,7 @@ import React, { useState, Fragment } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion as m } from "framer-motion";
+import Hamburger from "hamburger-react";
 
 //Components
 import Dropdown from "./Dropdown";
@@ -19,6 +20,7 @@ const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [dropdownLanguages, setDropdownLanguages] = useState(false);
+  const [isOpen, setOpen] = useState(false);
 
   const handleClick = () => {
     setClick(!click);
@@ -63,7 +65,7 @@ const Navbar = () => {
           <img src={logo} alt="MM9Machinery-logo" />
         </Link>
         <div className="menu-icon" onClick={handleClick}>
-          <i className={click ? "fas fa-times" : "fas fa-bars"} />
+          <Hamburger color="rgb(0, 191, 111)"  toggled={isOpen} toggle={setOpen} />
         </div>
         <ul className={click ? "nav-menu active" : "nav-menu"}>
           <li className="nav-item">

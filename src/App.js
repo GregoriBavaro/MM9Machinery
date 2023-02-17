@@ -1,6 +1,7 @@
 //Hooks
 import React, { Fragment } from "react";
-import AnimatedRoute from "./components/Hooks/use-AnimatedRoute"
+import AnimatedRoute from "./components/Hooks/use-AnimatedRoute";
+
 
 //Components
 import Navbar from "./components/Layout/Header/Navbar";

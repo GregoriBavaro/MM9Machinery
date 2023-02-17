@@ -1,0 +1,44 @@
+.admin-panel-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  max-height: 70vh;
+  width: 100%;
+}
+
+.admin-responsive-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 1rem;
+}
+
+.photo-wrapper {
+  max-width: 12rem;
+  border: 1px solid rgb(165, 165, 165);
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.photo-wrapper img {
+  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.photo-wrapper button {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0.4rem 0;
+}
+
+.photo-wrapper button:hover {
+  color: red;
+}
