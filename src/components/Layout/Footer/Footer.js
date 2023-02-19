@@ -17,6 +17,8 @@ import "./Footer.css";
 //Images
 import logo from "../../../images/MM9M.png";
 
+
+
 const Footer = () => {
   const { t } = useTranslation();
 
@@ -25,18 +27,15 @@ const Footer = () => {
       <div className="footer-container-top">
         {footerContacts.map(
           ({
-            classNameParent,
-            classNameChild,
-            classNameGrandchild,
             icon,
             h2,
             p,
           }) => {
             return (
-              <div key={h2} className={classNameParent}>
-                <div className={classNameChild}>
+              <div key={h2} className="footer-info-container">
+                <div className="footer-info-container__items">
                   {icon}
-                  <div className={classNameGrandchild}>
+                  <div className="footer-info-container__text">
                     <h2>{t(h2)}</h2>
                     <p>{p}</p>
                   </div>

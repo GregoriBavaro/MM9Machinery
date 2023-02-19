@@ -24,13 +24,13 @@ const EditClients = () => {
       },
       transformData
     );
-  }, []);
+  });
 
   const deletePhoto = (e) => {
     let newArray = [];
 
     newArray = data.filter(function (currentItem) {
-      return currentItem.id != e.currentTarget.id;
+      return currentItem.id !== e.currentTarget.id;
     });
 
     setData(newArray);
@@ -42,7 +42,7 @@ const EditClients = () => {
         {data.map((item) => {
           return (
             <div key={item.id} className="photo-wrapper">
-              <img src={item.name} />
+              <img src={item.name} alt="client"/>
               <button id={item.id} onClick={deletePhoto}>
                 Delete
               </button>

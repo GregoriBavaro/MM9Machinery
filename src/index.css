@@ -148,13 +148,14 @@ button:disabled:active {
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 7px;
   background-color: #f5f5f5;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: rgb(0, 191, 111);
   background-image: rgb(0, 191, 111);
+  border: 2px solid rgb(252, 252, 252);
 }
 
 .splide__arrow--prev svg,
