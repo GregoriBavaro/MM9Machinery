@@ -1,6 +1,7 @@
 //Hooks
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import useWindowDimensions from "../../Hooks/use-windowDimensions";
 import {
   Sidebar,
   Menu,
@@ -19,10 +20,9 @@ import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArro
 
 const AdminMenu = () => {
   const { collapseSidebar } = useProSidebar();
-
   const [collapsed, setCollapsed] = useState(false);
-
   const [toggled, setToggled] = useState(false);
+  const { width } = useWindowDimensions();
 
   const handleCollapsedChange = () => {
     setCollapsed(!collapsed);
@@ -32,11 +32,17 @@ const AdminMenu = () => {
     setToggled(value);
   };
 
+  useEffect(() => {
+    if (width < 900) {
+      setCollapsed(!collapsed);
+      collapseSidebar();
+    }
+  }, [width]);
+
   return (
     <div>
       <Sidebar
-        className={`app ${toggled ? "toggled" : ""}`}
-        style={{ height: "70vh" }}
+        style={{ height: "82vh" }}
         collapsed={collapsed}
         toggled={toggled}
         handleToggleSidebar={handleToggleSidebar}

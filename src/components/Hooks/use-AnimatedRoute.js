@@ -1,5 +1,5 @@
 //Hooks
-import { lazy, Suspense } from "react"
+import { lazy, Suspense } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
@@ -14,6 +14,9 @@ import GalleryBeer from "../Pages/GalleryBeer";
 import Laminated from "../Pages/Laminated";
 import Transport from "../Pages/Transport";
 import Cardboard from "../Pages/Cardboard";
+import Navbar from "../Layout/Header/Navbar";
+import Footer from "../Layout/Footer/Footer";
+import { Fragment } from "react";
 // import AdminPanel from "../Pages/AdminPanel";
 // import NotFound from "../Pages/NotFound";
 
@@ -34,36 +37,54 @@ const AnimatedRoute = () => {
   const location = useLocation();
 
   return (
-    <AnimatePresence
-      mode="wait"
-      initial={false}
-      onExitComplete={() =>
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        })
-      }
-    >
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/products">
-          <Route index element={<Products />} />
-          <Route path="laminated" element={<Laminated />} />
-          <Route path="transport" element={<Transport />} />
-          <Route path="cardboard" element={<Cardboard />} />
-        </Route>
-        <Route path="/services" element={<Services />} />
-        <Route path="/about-us">
-          <Route index element={<AboutUs />} />
-          <Route path="galleryChocolate" element={<GalleryChocolate />} />
-          <Route path="galleryBeer" element={<GalleryBeer />} />
-        </Route>
+    <Fragment>
+      <Navbar />
+      <AnimatePresence
+        mode="wait"
+        initial={false}
+        onExitComplete={() =>
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          })
+        }
+      >
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/products">
+            <Route index element={<Products />} />
+            <Route path="laminated" element={<Laminated />} />
+            <Route path="transport" element={<Transport />} />
+            <Route path="cardboard" element={<Cardboard />} />
+          </Route>
+          <Route path="/services" element={<Services />} />
+          <Route path="/about-us">
+            <Route index element={<AboutUs />} />
+            <Route path="galleryChocolate" element={<GalleryChocolate />} />
+            <Route path="galleryBeer" element={<GalleryBeer />} />
+          </Route>
 
-        <Route path="/master-admin/*" element={<Suspense fallback={<p>Loading...</p>}><AdminPanel /></Suspense>} />
-        <Route path="*" element={<Suspense fallback={<p>Loading...</p>}><NotFound /></Suspense>} />
-      </Routes>
-    </AnimatePresence>
+          <Route
+            path="/master-admin/*"
+            element={
+              <Suspense fallback={<p>Loading...</p>}>
+                <AdminPanel />
+              </Suspense>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <Suspense fallback={<p>Loading...</p>}>
+                <NotFound />
+              </Suspense>
+            }
+          />
+        </Routes>
+      </AnimatePresence>
+      <Footer />
+    </Fragment>
   );
 };
 

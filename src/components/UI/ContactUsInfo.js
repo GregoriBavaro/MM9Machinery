@@ -30,7 +30,7 @@ const ContactUsInfo = () => {
         <span>Slivovksa 14a</span>
       </div>
       <div className="google-maps-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2964.8001703279415!2d21.37548011542285!3d42.00456397921227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1354138af867cdc5%3A0xb565e3473a0062cd!2sSlivovska%2C%20Skopje%201000!5e0!3m2!1sen!2smk!4v1674405656371!5m2!1sen!2smk" title="location"></iframe>
+      <iframe title="address" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11857.534960837715!2d21.3679689!3d42.0134996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1354138af867cdc5%3A0xb565e3473a0062cd!2sSlivovska%2C%20Skopje%201000!5e0!3m2!1sen!2smk!4v1676845623995!5m2!1sen!2smk" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   );
