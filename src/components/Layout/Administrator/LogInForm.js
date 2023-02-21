@@ -1,5 +1,5 @@
 //Hooks
-import { Fragment, useRef } from "react";
+import { Fragment, useRef, useState } from "react";
 import useInput from "../../Hooks/use-input";
 import useHttp from "../../Hooks/use-http";
 import { useTranslation } from "react-i18next";
@@ -15,6 +15,7 @@ import "../../UI/EmailUs.css";
 import SubmitButton from "../../UI/SubmitButton";
 
 const LogInForm = () => {
+  const [data, setData] = useState(null);
   const { t } = useTranslation();
   const form = useRef();
 
@@ -51,6 +52,10 @@ const LogInForm = () => {
     formIsValid = true;
   }
 
+  const transformData = (data) => {
+    setData(data);
+  };
+
   const formSubmissionHandler = async (e) => {
     e.preventDefault();
 
@@ -58,12 +63,18 @@ const LogInForm = () => {
       return;
     }
 
-    postUser({
-      url: "https://mm9m-post-form-default-rtdb.firebaseio.com/user.json",
-      method: "POST",
-      body: { name: enteredName, password: enteredPassword },
-      headers: { "Contend-Type": "application/json" },
-    });
+    postUser(
+      {
+        url: "https://localhost:7058/api/Authentication/login",
+        method: "POST",
+        body: { username: enteredName, password: enteredPassword },
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json;charset=utf-8",
+        },
+      },
+      transformData
+    );
 
     resetNameInput();
     resetPasswordInput();

@@ -1,11 +1,13 @@
 //Hooks
 import React, { Fragment } from "react";
-import AnimatedRoute from "./components/Hooks/use-AnimatedRoute";
+import { RouterProvider } from "react-router-dom";
+// import AnimatedRoute from "./components/Hooks/use-AnimatedRoute";
+import {router} from "./components/Hooks/use-AnimatedRoute"
 
 function App() {
   return (
     <Fragment>
-      <AnimatedRoute />
+      <RouterProvider router={router}/>
     </Fragment>
   );
 }

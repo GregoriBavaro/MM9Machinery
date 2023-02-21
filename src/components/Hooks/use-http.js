@@ -17,19 +17,26 @@ const useHttp = () => {
           body: requestConfig.body ? JSON.stringify(requestConfig.body) : null,
         });
 
-        setSuccess("success")
-
         if (!response.ok) {
           throw new Error("Something went wrong!");
         }
 
         const data = await response.json();
+
+        if(data.jwtToken !== "") {
+          const token = data?.jwtToken
+
+          localStorage.setItem("token", token)
+        }
         applyData(data);
+
+        setSuccess("success");
       } catch (error) {
         setError(error.message);
       }
       
       setIsLoading(false);
+      
     },
     []
   );
