@@ -4,37 +4,28 @@ import { Fragment, useEffect, useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
 import Notifications from "../../Hooks/use-customNotifications";
 import { AnimatePresence } from "framer-motion";
+import { useLoaderData } from "react-router-dom"
 
 const fileTypes = ["PNG", "JPG"];
 
 const EditClients = () => {
+  const photos = useLoaderData()
+
   const [file, setFile] = useState(null);
   const [data, setData] = useState([]);
   const [error, setError] = useState();
 
-  const { sendRequest: getData } = useHttp();
-
+  
   //TRANSFORM DATA
 
-  const transformData = (users) => {
+  useEffect(() => {
     const loadedData = [];
 
-    for (const user in users) {
-      loadedData.push({ id: user, name: users[user].name });
+    for (const photo in photos) {
+      loadedData.push({ id: photo, name: photos[photo].name });
     }
 
     setData(loadedData);
-  };
-
-  //GET DATA
-
-  useEffect(() => {
-    getData(
-      {
-        url: "https://mm9m-post-form-default-rtdb.firebaseio.com/user.json",
-      },
-      transformData
-    );
   }, []);
 
   //DELETE PHOTO

@@ -14,11 +14,11 @@ import img10 from "../images/packagingFor/packagingFor (10).jpg";
 export const WhatWeDoItems = [
   {
     photo: img1,
-    to: "/about-us/galleryChocolate",
+    to: "galleryChocolate",
   },
   {
     photo: img2,
-    to: "/about-us/galleryBeer",
+    to: "galleryBeer",
   },
   {
     photo: img3,

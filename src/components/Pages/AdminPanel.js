@@ -1,27 +1,25 @@
 //Hooks
-import { Routes, Route } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { ProSidebarProvider } from "react-pro-sidebar";
-import { tokenLoader } from "../Helpers/Auth";
+import { Suspense } from "react";
 
 //Components
-import LogInForm from "../Layout/Administrator/LogInForm";
 import AdminMenu from "../Layout/Administrator/AdminMenu";
-import Partners from "../Pages/Partners";
-import Clients from "../Pages/Clients";
+import Navbar from "../Layout/Header/Navbar";
 
 //CSS
 import "../Layout/Administrator/AdminPanel.css";
 
 const AdminPanel = () => {
+  
   return (
     <ProSidebarProvider>
+      <Suspense>
+        <Navbar />
+      </Suspense>
       <div className="admin-panel-container">
         <AdminMenu />
-        <Routes>
-          <Route path="login" element={<LogInForm />} />
-          <Route path="partners" element={<Partners />} />
-          <Route path="clients" element={<Clients />} />
-        </Routes>
+        <Outlet />
       </div>
     </ProSidebarProvider>
   );
