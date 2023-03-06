@@ -13,11 +13,10 @@ import "../../UI/EmailUs.css";
 
 //Components
 import SubmitButton from "../../UI/SubmitButton";
+import { Form, json, redirect } from "react-router-dom";
 
 const LogInForm = () => {
-  const [data, setData] = useState(null);
   const { t } = useTranslation();
-  const form = useRef();
 
   const {
     value: enteredName,
@@ -51,34 +50,6 @@ const LogInForm = () => {
   if (enteredNameIsValid && enteredPasswordIsValid) {
     formIsValid = true;
   }
-
-  const transformData = (data) => {
-    setData(data);
-  };
-
-  const formSubmissionHandler = async (e) => {
-    e.preventDefault();
-
-    if (!formIsValid) {
-      return;
-    }
-
-    postUser(
-      {
-        url: "https://localhost:7058/api/Authentication/login",
-        method: "POST",
-        body: { username: enteredName, password: enteredPassword },
-        headers: {
-          Accept: "application/json, text/plain, */*",
-          "Content-Type": "application/json;charset=utf-8",
-        },
-      },
-      transformData
-    );
-
-    resetNameInput();
-    resetPasswordInput();
-  };
 
   const nameInputClasses = nameInputHasError
     ? "email-form-container invalid"
@@ -131,7 +102,7 @@ const LogInForm = () => {
 
       <div className="admin-responsive-container">
         <div className="login-form-wrapper">
-          <form ref={form} onSubmit={formSubmissionHandler}>
+          <Form method="post">
             <h1>{t("log_in")}</h1>
             <div className={nameInputClasses}>
               <label htmlFor="name">{t("admin_name")}</label>
@@ -168,7 +139,7 @@ const LogInForm = () => {
             <div className="form-button-container">
               <SubmitButton dis={!formIsValid}> {t("login")}</SubmitButton>
             </div>
-          </form>
+          </Form>
         </div>
       </div>
     </Fragment>
@@ -176,3 +147,41 @@ const LogInForm = () => {
 };
 
 export default LogInForm;
+export async function action({ request }) {
+  const data = await request.formData();
+  const authData = {
+    username: data.get("name"),
+    password: data.get("password"),
+  };
+
+  const response = await fetch(
+    "https://localhost:7058/api/authentication/login",
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(authData),
+    }
+  );
+  // return some data in order to show a message where the form is submitted, the validation errors from the back end for example
+  // 422 validation errors
+
+  // if (response.status === 422 || response.status === 401) {
+  //   return response;
+  // }
+
+  if (!response.ok) {
+    throw json({ message: "Could not authenticate user." }, { status: 500 });
+  }
+
+  const resData = await response.json();
+  const token = resData.jwtToken;
+
+  localStorage.setItem("token", token);
+  const expiration = new Date();
+  expiration.setHours(expiration.getHours() + 1);
+  localStorage.setItem("expiration", expiration.toISOString());
+  return redirect("/master-admin/clients");
+}

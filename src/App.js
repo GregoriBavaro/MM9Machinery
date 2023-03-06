@@ -16,10 +16,12 @@ import Transport from "./components/Pages/Transport";
 import Cardboard from "./components/Pages/Cardboard";
 import AdminPanel from "./components/Pages/AdminPanel";
 import Partners from "./components/Pages/Partners";
-import Clients, { loader as clientsLoader} from "./components/Pages/Clients";
+import Clients, { loader as clientsLoader } from "./components/Pages/Clients";
 import Error from "./components/Pages/Error";
-import LogInForm from "./components/Layout/Administrator/LogInForm";
-
+import LogInForm, {
+  action as authAction,
+} from "./components/Layout/Administrator/LogInForm";
+import { action as logoutAction } from "./components/Layout/Administrator/Logout";
 //Layouts
 import RootLayout from "./components/Pages/RootLayout";
 import AboutUsLayout from "./components/Pages/AboutUsLayout";
@@ -90,10 +92,12 @@ const router = createBrowserRouter([
     element: <AdminPanel />,
     id: "admin",
     errorElement: <Error />,
+    loader: tokenLoader,
     children: [
       {
         path: "login",
         element: <LogInForm />,
+        action: authAction,
       },
       {
         path: "partners",
@@ -104,10 +108,13 @@ const router = createBrowserRouter([
         element: <Clients />,
         loader: clientsLoader,
       },
+      {
+        path: "logout",
+        action: logoutAction,
+      },
     ],
   },
 ]);
-
 
 function App() {
   return (
