@@ -1,6 +1,6 @@
 //Hooks
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useRouteLoaderData, Form } from "react-router-dom";
 import useWindowDimensions from "../../Hooks/use-windowDimensions";
 import {
   Sidebar,
@@ -23,7 +23,7 @@ const AdminMenu = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [toggled, setToggled] = useState(false);
   const { width } = useWindowDimensions();
-
+  const token = useRouteLoaderData("admin");
   const handleCollapsedChange = () => {
     setCollapsed(!collapsed);
     collapseSidebar();
@@ -76,12 +76,21 @@ const AdminMenu = () => {
           </Menu>
 
           <Menu>
-            <MenuItem
-              component={<Link to="login" />}
-              icon={<LoginIcon sx={{ color: "rgb(0, 191, 111)" }} />}
-            >
-              Login
-            </MenuItem>
+            {!token && (
+              <MenuItem
+                component={<Link to="login" />}
+                icon={<LoginIcon sx={{ color: "rgb(0, 191, 111)" }} />}
+              >
+                Login
+              </MenuItem>
+            )}
+            {token && (
+              <MenuItem>
+                <Form action="logout" method="post">
+                  <button>Logout</button>
+                </Form>
+              </MenuItem>
+            )}
             <SubMenu
               defaultOpen
               icon={<SettingsIcon sx={{ color: "rgb(0, 191, 111)" }} />}
