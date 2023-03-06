@@ -1,5 +1,5 @@
 //Hooks
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { Link, useRouteLoaderData, Form } from "react-router-dom";
 import useWindowDimensions from "../../Hooks/use-windowDimensions";
 import {
@@ -22,6 +22,7 @@ const AdminMenu = () => {
   const { collapseSidebar } = useProSidebar();
   const [collapsed, setCollapsed] = useState(false);
   const [toggled, setToggled] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { width } = useWindowDimensions();
   const token = useRouteLoaderData("admin");
   const handleCollapsedChange = () => {
@@ -38,6 +39,14 @@ const AdminMenu = () => {
       collapseSidebar();
     }
   }, [width]);
+
+  useEffect(() => {
+    if (token) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, [isLoggedIn, token]);
 
   return (
     <div>
@@ -74,9 +83,8 @@ const AdminMenu = () => {
             )}
             <hr />
           </Menu>
-
           <Menu>
-            {!token && (
+            {!token  && !isLoggedIn && (
               <MenuItem
                 component={<Link to="login" />}
                 icon={<LoginIcon sx={{ color: "rgb(0, 191, 111)" }} />}
@@ -84,14 +92,22 @@ const AdminMenu = () => {
                 Login
               </MenuItem>
             )}
-            {token && (
-              <MenuItem>
+            {token && isLoggedIn && (
+              <MenuItem icon={<LoginIcon sx={{ color: "rgb(0, 191, 111)" }} />}>
                 <Form action="logout" method="post">
-                  <button>Logout</button>
+                  <button
+                    style={{
+                      border: "none",
+                      backgroundColor: "transparent",
+                      cursor: "pointer",
+                    }}
+                  >
+                    Logout
+                  </button>
                 </Form>
               </MenuItem>
             )}
-            <SubMenu
+            {token && isLoggedIn &&<SubMenu
               defaultOpen
               icon={<SettingsIcon sx={{ color: "rgb(0, 191, 111)" }} />}
               label={"Swiper Options"}
@@ -108,7 +124,7 @@ const AdminMenu = () => {
               >
                 Partners
               </MenuItem>
-            </SubMenu>
+            </SubMenu>}
           </Menu>
         </main>
       </Sidebar>

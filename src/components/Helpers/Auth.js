@@ -21,7 +21,7 @@ export const getAuthToken = () => {
 };
 
 export const tokenLoader = () => {
-  return getAuthToken;
+  return getAuthToken();
 };
 
 //check autLoader

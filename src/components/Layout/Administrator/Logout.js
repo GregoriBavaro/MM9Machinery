@@ -5,3 +5,4 @@ export function action() {
   localStorage.removeItem("expiration");
   return redirect("/master-admin/login");
 }
+
