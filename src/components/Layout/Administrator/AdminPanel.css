@@ -1,6 +1,5 @@
 .admin-responsive-container {
   width: 100%;
-  max-height: 70vh;
 }
 
 .admin-panel-container {
@@ -8,7 +7,6 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: row;
-  min-height: 83vh;
   width: 100%;
   padding: 1rem;
 }

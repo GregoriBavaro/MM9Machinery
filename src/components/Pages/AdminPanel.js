@@ -13,22 +13,22 @@ import "../Layout/Administrator/AdminPanel.css";
 const AdminPanel = () => {
   const token = useLoaderData();
   const submit = useSubmit();
-  useEffect(() => {
-    if (!token) {
-      return;
-    }
+  // useEffect(() => {
+  //   if (!token) {
+  //     return;
+  //   }
 
-    if (token === "EXPIRED") {
-      submit(null, { action: "/logout", method: "post" });
+  //   if (token === "EXPIRED") {
+  //     submit(null, { action: "/logout", method: "post" });
       
-      return;
-    }
-    const tokenDuration = getTokenDuration();
-    setTimeout(() => {
-      submit(null, { action: "/logout", method: "post" });
+  //     return;
+  //   }
+  //   const tokenDuration = getTokenDuration();
+  //   setTimeout(() => {
+  //     submit(null, { action: "/logout", method: "post" });
       
-    }, tokenDuration);
-  }, [token, submit]);
+  //   }, tokenDuration);
+  // }, [token, submit]);
 
   
   return (
