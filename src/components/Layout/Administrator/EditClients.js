@@ -1,7 +1,6 @@
 //Hooks
 import useHttp from "../../Hooks/use-http";
-import { Fragment, useEffect, useState, useRef } from "react";
-import { FileUploader } from "react-drag-drop-files";
+import { Fragment, useEffect, useState } from "react";
 import Notifications from "../../Hooks/use-customNotifications";
 import { AnimatePresence } from "framer-motion";
 import { useLoaderData } from "react-router-dom";

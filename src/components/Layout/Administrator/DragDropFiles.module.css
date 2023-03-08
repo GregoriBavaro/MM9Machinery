@@ -1,24 +1,83 @@
 .imagePreview {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   flex-direction: column;
   gap: 10px;
-  padding: 1rem;
-  max-height: 20vh;
+  padding: 1rem 0;
   width: 98%;
-  overflow: auto;
-  margin-left: 1rem;
   border-radius: 0.2rem;
-  border: 1px solid rgb(154, 154, 154);
+  margin-left: 1rem;
 }
 
 .imagePreviewWrapper {
-  max-width: 9.5rem;
+  display: flex;
+  max-height: 4rem;
+  min-height: 100%;
   border: 1px solid rgb(165, 165, 165);
   border-radius: 5px;
+  padding: 0.5rem;
+  background-color: rgb(0, 191, 111);
+  color: rgb(245, 245, 245);
+  gap: 1rem;
 }
 
-.imagePreview img {
-  width: 100%;
+.image {
+  max-width: 5rem;
 }
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem
+}
+
+.text h1 {
+  font-size: 1em;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.2rem;
+}
+
+.fileUploadContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+
+}
+
+.fileUploadContainer label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border: 3px dotted rgb(0, 191, 111);
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  height: fit-content;
+  cursor: pointer;
+  background-color: rgba(64, 235, 164, 0.11);
+}
+
+.fileUploadContainer input {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.fileUploadContainer button {
+  border: none;
+  background-color: rgb(0, 191, 111);
+  padding: 0.5rem 2rem;
+  border-radius: 0.3rem;
+  color: rgb(245, 245, 245);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+
