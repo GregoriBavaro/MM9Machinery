@@ -1,5 +1,5 @@
 //Hooks
-import { useState, Fragment, useEffect } from "react";
+import { useState, Fragment } from "react";
 import FormatBytes from "../../Hooks/use-converter";
 import { motion as m, AnimatePresence } from "framer-motion";
 import axios from "axios";
@@ -21,6 +21,12 @@ const DragDropFiles = (props) => {
 
   const { t } = useTranslation();
 
+  let imagePreviewContainer = false;
+
+  if (imagePreviews.length > 0) {
+    imagePreviewContainer = true;
+  }
+
   const selectFiles = (event) => {
     let images = []; //Image preview array only to show the photos that are selected to be uploaded
     let photos = []; //array of photos for db POST
@@ -32,7 +38,7 @@ const DragDropFiles = (props) => {
         size: event.target.files[i].size,
         id: uuidv4(), //Adding id to give the clint filter option of the picked preview pictures (to remove selected pictures)
       }); // The use of URL.createObjectURL() is to get the image preview URL and put it into imagePreviews array. This method produces a DOMString including a URL describing the object provided in the parameter. The URL life is tied to the document in the window on which it was created.
-      photos.push({ file: event.target.files[i],id: images[i].id}); // giving the same id from images array to update the list of files that will be pushed to db
+      photos.push({ file: event.target.files[i], id: images[i].id }); // giving the same id from images array to update the list of files that will be pushed to db
     }
 
     setImagePreviews(images);
@@ -68,8 +74,8 @@ const DragDropFiles = (props) => {
 
   //Remove from preview and from DB post
   const deleteSelectedPhoto = (id) => {
-    setImagePreviews((current) => current.filter((photo) => photo.id != id));
-    setArrayOfPhotos((current) => current.filter((photo) => photo.id != id));
+    setImagePreviews((current) => current.filter((photo) => photo.id !== id));
+    setArrayOfPhotos((current) => current.filter((photo) => photo.id !== id));
   };
 
   return (
@@ -89,9 +95,9 @@ const DragDropFiles = (props) => {
           <button onClick={callUploadMultiple}>{t("upload")}</button>
         </label>
       </div>
-      <AnimatePresence>
-        {imagePreviews && (
-          <div className={classes.imagePreview}>
+      {imagePreviewContainer && (
+        <div className={classes.imagePreview}>
+          <AnimatePresence>
             {imagePreviews.map((img) => {
               return (
                 <m.div
@@ -104,11 +110,10 @@ const DragDropFiles = (props) => {
                     type: "spring",
                     stiffness: 260,
                     damping: 20,
-                    duration: 10,
                   }}
                 >
                   <div className={classes.image}>
-                    <img src={img.img} alt={"image"} />
+                    <img src={img.img} alt={"clients"} />
                   </div>
                   <div className={classes.text}>
                     <h1>{img.name}</h1>
@@ -128,9 +133,9 @@ const DragDropFiles = (props) => {
                 </m.div>
               );
             })}
-          </div>
-        )}
-      </AnimatePresence>
+          </AnimatePresence>
+        </div>
+      )}
     </Fragment>
   );
 };

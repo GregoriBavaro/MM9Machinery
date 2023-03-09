@@ -1,9 +1,9 @@
 //Hooks
 import axios from "axios";
-import { AnimatePresence } from "framer-motion";
 import { Fragment, useEffect, useState } from "react";
 import Notifications from "../../Hooks/use-customNotifications";
 import { useTranslation } from "react-i18next";
+import { motion as m, AnimatePresence } from "framer-motion";
 
 //Components
 import DragAndDrop from "./DragDropFiles";
@@ -14,7 +14,11 @@ const EditClients = () => {
 
   const { t } = useTranslation();
 
-  //const ref = useRef(null);
+  let photosFromDbContainer = false;
+
+  if (photosFromDb.length > 0) {
+    photosFromDbContainer = true;
+  }
 
   //Get Photos
   //IZDVOEN E POVIKOT NADVOR OD USEEFFECT ZA DA MOZE DA SE AZURIRA POSLE DELETE, T.E DATATA DA E UP-TO DATE,
@@ -34,7 +38,7 @@ const EditClients = () => {
   }, []);
 
   //Raboti no prakjam pogresno id
-  //NO MAMA IMA NOV TRIK !!!! 
+  //NO MAMA IMA NOV TRIK !!!!
   const deletePhoto = async (id) => {
     //id-to go zadavam dolu vo jsx i so ref go zemam no sekogas ja brise poslednata slika
     // const id = ref.current.id;
@@ -65,25 +69,41 @@ const EditClients = () => {
           )}
       </AnimatePresence>
       <div className="file-upload">
-        <DragAndDrop getPhotos={getPhotos}/>
+        <DragAndDrop getPhotos={getPhotos} />
       </div>
-      <div className="admin-responsive-container">
-        <div className="admin-responsive-wrapper">
-          {photosFromDb?.map((item) => {
-            return (
-              <div key={item.documentId} className="photo-wrapper">
-                <img
-                  src={`data:image/jpeg;base64,${item.dataFiles}`}
-                  alt="client"
-                />
-                <button onClick={() => deletePhoto(item.documentId)}>
-                  {t("delete")}
-                </button>
-              </div>
-            );
-          })}
+      {photosFromDbContainer && (
+        <div className="admin-responsive-container">
+          <div className="admin-responsive-wrapper">
+            <AnimatePresence>
+            {photosFromDb?.map((item) => {
+              return (
+                <m.div
+                  key={item.documentId}
+                  className="photo-wrapper"
+                  initial={{ y: 300, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ scale: 0, opacity: 0 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 20,
+                    duration: 10,
+                  }}
+                >
+                  <img
+                    src={`data:image/jpeg;base64,${item.dataFiles}`}
+                    alt="client"
+                  />
+                  <button onClick={() => deletePhoto(item.documentId)}>
+                    {t("delete")}
+                  </button>
+                </m.div>
+              );
+            })}
+            </AnimatePresence>
+          </div>
         </div>
-      </div>
+      )}
     </Fragment>
   );
 };
