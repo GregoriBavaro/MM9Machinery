@@ -28,14 +28,12 @@ const EditClients = () => {
   useEffect(() => {
     getPhotos();
   }, []);
+
   //Raboti no prakjam pogresno id
-  //NO MAMA IMA NOV TRIK !!!!
+  //NO MAMA IMA NOV TRIK !!!! 
   const deletePhoto = async (id) => {
     //id-to go zadavam dolu vo jsx i so ref go zemam no sekogas ja brise poslednata slika
     // const id = ref.current.id;
-
-    console.log(id);
-
     try {
       const res = await axios.delete(`https://localhost:7058/api/File/${id}`);
       console.log(res);
@@ -63,7 +61,7 @@ const EditClients = () => {
           )}
       </AnimatePresence>
       <div className="file-upload">
-        <DragAndDrop />
+        <DragAndDrop getPhotos={getPhotos}/>
       </div>
       <div className="admin-responsive-container">
         <div className="admin-responsive-wrapper">

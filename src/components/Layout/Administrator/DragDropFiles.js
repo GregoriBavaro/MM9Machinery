@@ -10,21 +10,22 @@ import classes from "./DragDropFiles.module.css";
 //Icons
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 
-const DragDropFiles = () => {
+const DragDropFiles = (props) => {
   const [imagePreviews, setImagePreviews] = useState([]); //state to keep img previews
-  const [photosFromDb, setPhotosFromDb] = useState([]);
+  // const [photosFromDb, setPhotosFromDb] = useState([]);
   //multiple photos
   const [arrayOfPhotos, setArrayOfPhotos] = useState([]);
 
-  const getPhotos = async () => {
-    try {
-      const res = await axios.get("https://localhost:7058/api/File/all");
-      setPhotosFromDb(res.data);
-      console.log("render");
-    } catch (ex) {
-      console.log(ex);
-    }
-  };
+  // const getPhotos = async () => {
+  //   try {
+  //     const res = await axios.get("https://localhost:7058/api/File/all");
+  //     setPhotosFromDb(res.data);
+  //     console.log("render");
+  //   } catch (ex) {
+  //     console.log(ex);
+  //   }
+  // };
+
   const selectFiles = (event) => {
     let images = []; //Image preview array only to show the photos that are selected to be uploaded
     let photos = []; //array of photos for db POST
@@ -62,7 +63,7 @@ const DragDropFiles = () => {
     } catch (ex) {
       console.log(ex);
     }
-    getPhotos();
+    props.getPhotos(); // zlaten tuka so props za da se updejtira
   };
 
   // A function to call send photos to DB depending on its Length
