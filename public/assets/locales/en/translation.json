@@ -61,8 +61,15 @@
     "responsive": "Responsive and knowledgeable",
     "custom": "Custom-made packaging",
     "our_partners": "Our partners",
+    "our_clients": "Our clients",
     "not_found": "page not found",
-    "log_in": "Log in"
+    "log_in": "Log in",
+    "log_out": "Logout",
+    "administrator": "Administrator",
+    "swiper_options": "Swiper options",
+    "delete": "DELETE",
+    "browse_images": "Browse images",
+    "upload": "Upload"
 
     
   }

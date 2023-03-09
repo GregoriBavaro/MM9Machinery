@@ -1,5 +1,6 @@
 //Hooks
 import { useState, useEffect, Fragment } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useRouteLoaderData, Form } from "react-router-dom";
 import useWindowDimensions from "../../Hooks/use-windowDimensions";
 import {
@@ -25,10 +26,14 @@ const AdminMenu = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { width } = useWindowDimensions();
   const token = useRouteLoaderData("admin");
+
+  const { t } = useTranslation();
+
   const handleCollapsedChange = () => {
     setCollapsed(!collapsed);
     collapseSidebar();
   };
+
   const handleToggleSidebar = (value) => {
     setToggled(value);
   };
@@ -76,7 +81,7 @@ const AdminMenu = () => {
                     letterSpacing: "1px",
                   }}
                 >
-                  Administrator
+                  {t("administrator")}
                 </div>
               </MenuItem>
             )}
@@ -88,7 +93,7 @@ const AdminMenu = () => {
                 component={<Link to="login" />}
                 icon={<LoginIcon sx={{ color: "rgb(0, 191, 111)" }} />}
               >
-                Login
+                {t("log_in")}
               </MenuItem>
             )}
             {token && isLoggedIn && (
@@ -99,9 +104,10 @@ const AdminMenu = () => {
                       border: "none",
                       backgroundColor: "transparent",
                       cursor: "pointer",
+                      fontSize: "16px",
                     }}
                   >
-                    Logout
+                    {t("log_out")}
                   </button>
                 </Form>
               </MenuItem>
@@ -109,19 +115,19 @@ const AdminMenu = () => {
             {token && isLoggedIn &&<SubMenu
               defaultOpen
               icon={<SettingsIcon sx={{ color: "rgb(0, 191, 111)" }} />}
-              label={"Swiper Options"}
+              label={t("swiper_options")}
             >
               <MenuItem
                 component={<Link to="clients" />}
                 icon={<PeopleAltIcon sx={{ color: "rgb(0, 191, 111)" }} />}
               >
-                Clients
+                {t("our_clients")}
               </MenuItem>
               <MenuItem
                 component={<Link to="partners" />}
                 icon={<HandshakeIcon sx={{ color: "rgb(0, 191, 111)" }} />}
               >
-                Partners
+                {t("our_partners")}
               </MenuItem>
             </SubMenu>}
           </Menu>

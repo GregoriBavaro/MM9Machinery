@@ -1,8 +1,9 @@
 //Hooks
-import { useState, Fragment, useEffect } from "react";
+import { useState, Fragment} from "react";
 import FormatBytes from "../../Hooks/use-converter";
 import { motion as m, AnimatePresence } from "framer-motion";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 //CSS
 import classes from "./DragDropFiles.module.css";
@@ -16,16 +17,9 @@ const DragDropFiles = (props) => {
   //multiple photos
   const [arrayOfPhotos, setArrayOfPhotos] = useState([]);
 
-  // const getPhotos = async () => {
-  //   try {
-  //     const res = await axios.get("https://localhost:7058/api/File/all");
-  //     setPhotosFromDb(res.data);
-  //     console.log("render");
-  //   } catch (ex) {
-  //     console.log(ex);
-  //   }
-  // };
+  const { t } = useTranslation();
 
+  
   const selectFiles = (event) => {
     let images = []; //Image preview array only to show the photos that are selected to be uploaded
     let photos = []; //array of photos for db POST
@@ -75,7 +69,7 @@ const DragDropFiles = (props) => {
       <div className={classes.fileUploadContainer}>
         <label htmlFor="file">
           <AddAPhotoIcon sx={{ color: "rgb(0, 191, 111)" }} />
-          Browse or Drag and Drop images
+          {t("browse_images")}
           <input
             id="file"
             name="file"
@@ -84,7 +78,7 @@ const DragDropFiles = (props) => {
             accept="image/*"
             onChange={selectFiles}
           />
-          <button onClick={callUploadMultiple}>Upload</button>
+          <button onClick={callUploadMultiple}>{t("upload")}</button>
         </label>
       </div>
       <AnimatePresence>

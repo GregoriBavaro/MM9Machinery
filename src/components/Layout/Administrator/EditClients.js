@@ -3,12 +3,16 @@ import axios from "axios";
 import { AnimatePresence } from "framer-motion";
 import { Fragment, useEffect, useState } from "react";
 import Notifications from "../../Hooks/use-customNotifications";
+import { useTranslation } from "react-i18next";
 
+//Components
 import DragAndDrop from "./DragDropFiles";
 
 const EditClients = () => {
   const [error, setError] = useState();
   const [photosFromDb, setPhotosFromDb] = useState([]);
+
+  const { t } = useTranslation();
 
   //const ref = useRef(null);
 
@@ -73,7 +77,7 @@ const EditClients = () => {
                   alt="client"
                 />
                 <button onClick={() => deletePhoto(item.documentId)}>
-                  Delete
+                  {t("delete")}
                 </button>
               </div>
             );
