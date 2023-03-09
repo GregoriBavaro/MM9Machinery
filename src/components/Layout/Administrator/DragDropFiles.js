@@ -12,10 +12,19 @@ import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 
 const DragDropFiles = () => {
   const [imagePreviews, setImagePreviews] = useState([]); //state to keep img previews
-
+  const [photosFromDb, setPhotosFromDb] = useState([]);
   //multiple photos
   const [arrayOfPhotos, setArrayOfPhotos] = useState([]);
 
+  const getPhotos = async () => {
+    try {
+      const res = await axios.get("https://localhost:7058/api/File/all");
+      setPhotosFromDb(res.data);
+      console.log("render");
+    } catch (ex) {
+      console.log(ex);
+    }
+  };
   const selectFiles = (event) => {
     let images = []; //Image preview array only to show the photos that are selected to be uploaded
     let photos = []; //array of photos for db POST
@@ -34,14 +43,8 @@ const DragDropFiles = () => {
     setArrayOfPhotos(photos);
   };
 
-  // A function to call send photos to DB depending on its Length
-  
-  const callUploadMultiple = () => {
-    arrayOfPhotos.map((file) => sendPhotos(file));
-  };
-
   const sendPhotos = async (file) => {
-    //create data file 
+    //create data file
     let formData = new FormData();
     formData.append("files", file);
 
@@ -59,8 +62,13 @@ const DragDropFiles = () => {
     } catch (ex) {
       console.log(ex);
     }
+    getPhotos();
   };
 
+  // A function to call send photos to DB depending on its Length
+  const callUploadMultiple = () => {
+    arrayOfPhotos.map((file) => sendPhotos(file));
+  };
   return (
     <Fragment>
       <div className={classes.fileUploadContainer}>
