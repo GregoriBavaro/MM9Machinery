@@ -79,4 +79,15 @@
 }
 
 
+.deleteButton {
+  display: flex;
+  margin-left: auto;
+  justify-content: center;
+  align-items: center;
+}
 
+.deleteButton button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

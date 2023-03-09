@@ -1,15 +1,17 @@
 //Hooks
-import { useState, Fragment} from "react";
+import { useState, Fragment, useEffect } from "react";
 import FormatBytes from "../../Hooks/use-converter";
 import { motion as m, AnimatePresence } from "framer-motion";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
+import { v4 as uuidv4 } from "uuid";
 
 //CSS
 import classes from "./DragDropFiles.module.css";
 
 //Icons
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 const DragDropFiles = (props) => {
   const [imagePreviews, setImagePreviews] = useState([]); //state to keep img previews
@@ -19,7 +21,6 @@ const DragDropFiles = (props) => {
 
   const { t } = useTranslation();
 
-  
   const selectFiles = (event) => {
     let images = []; //Image preview array only to show the photos that are selected to be uploaded
     let photos = []; //array of photos for db POST
@@ -29,11 +30,11 @@ const DragDropFiles = (props) => {
         img: URL.createObjectURL(event.target.files[i]),
         name: event.target.files[i].name,
         size: event.target.files[i].size,
+        id: uuidv4(), //Adding id to give the clint filter option of the picked preview pictures (to remove selected pictures)
       }); // The use of URL.createObjectURL() is to get the image preview URL and put it into imagePreviews array. This method produces a DOMString including a URL describing the object provided in the parameter. The URL life is tied to the document in the window on which it was created.
-      photos.push(event.target.files[i]);
+      photos.push({ file: event.target.files[i],id: images[i].id}); // giving the same id from images array to update the list of files that will be pushed to db
     }
 
-    // setSelectedFiles(event.target.files[0]);
     setImagePreviews(images);
     setArrayOfPhotos(photos);
   };
@@ -41,7 +42,7 @@ const DragDropFiles = (props) => {
   const sendPhotos = async (file) => {
     //create data file
     let formData = new FormData();
-    formData.append("files", file);
+    formData.append("files", file.file);
 
     try {
       const res = await axios.post(
@@ -60,10 +61,17 @@ const DragDropFiles = (props) => {
     props.getPhotos(); // zlaten tuka so props za da se updejtira
   };
 
-  // A function to call send photos to DB depending on its Length
+  // A function to call send photos to DB depending on its Length (multiple of times)
   const callUploadMultiple = () => {
     arrayOfPhotos.map((file) => sendPhotos(file));
   };
+
+  //Remove from preview and from DB post
+  const deleteSelectedPhoto = (id) => {
+    setImagePreviews((current) => current.filter((photo) => photo.id != id));
+    setArrayOfPhotos((current) => current.filter((photo) => photo.id != id));
+  };
+
   return (
     <Fragment>
       <div className={classes.fileUploadContainer}>
@@ -84,10 +92,10 @@ const DragDropFiles = (props) => {
       <AnimatePresence>
         {imagePreviews && (
           <div className={classes.imagePreview}>
-            {imagePreviews.map((img, i) => {
+            {imagePreviews.map((img) => {
               return (
                 <m.div
-                  key={i}
+                  key={img.id}
                   className={classes.imagePreviewWrapper}
                   initial={{ x: 300, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
@@ -100,12 +108,23 @@ const DragDropFiles = (props) => {
                   }}
                 >
                   <div className={classes.image}>
-                    <img src={img.img} alt={"image-" + i} />
+                    <img src={img.img} alt={"image"} />
                   </div>
                   <div className={classes.text}>
                     <h1>{img.name}</h1>
                     <p>{FormatBytes(img.size)}</p>
                   </div>
+
+                  <DeleteForeverIcon
+                    onClick={() => deleteSelectedPhoto(img.id)}
+                    sx={{
+                      color: "white",
+                      fontSize: "2.5rem",
+                      marginLeft: "auto",
+                      cursor: "pointer",
+                      "&:hover": { color: "red" },
+                    }}
+                  />
                 </m.div>
               );
             })}
