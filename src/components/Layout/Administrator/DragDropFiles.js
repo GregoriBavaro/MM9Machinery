@@ -1,5 +1,5 @@
 //Hooks
-import { useState, Fragment } from "react";
+import { useState, Fragment, useEffect } from "react";
 import FormatBytes from "../../Hooks/use-converter";
 import { motion as m, AnimatePresence } from "framer-motion";
 import axios from "axios";
@@ -11,9 +11,7 @@ import classes from "./DragDropFiles.module.css";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 
 const DragDropFiles = () => {
-  // const [selectedFiles, setSelectedFiles] = useState([]); old logic only for a single photo
-
-  const [imagePreviews, setImagePreviews] = useState([]); //state to keep img preview
+  const [imagePreviews, setImagePreviews] = useState([]); //state to keep img previews
 
   //multiple photos
   const [arrayOfPhotos, setArrayOfPhotos] = useState([]);
@@ -37,11 +35,13 @@ const DragDropFiles = () => {
   };
 
   // A function to call send photos to DB depending on its Length
+  
   const callUploadMultiple = () => {
-    arrayOfPhotos.map((file, i) => sendPhotos(file));
+    arrayOfPhotos.map((file) => sendPhotos(file));
   };
 
   const sendPhotos = async (file) => {
+    //create data file 
     let formData = new FormData();
     formData.append("files", file);
 

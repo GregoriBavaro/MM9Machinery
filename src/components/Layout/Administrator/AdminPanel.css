@@ -15,9 +15,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 10px;
+  gap: 15px;
   padding: 1rem;
-  max-height: 67vh;
+  max-height: 90vh;
   overflow: auto;
   margin-left: 1rem;
   border-radius: 0.2rem;
@@ -29,12 +29,13 @@
   border: 1px solid rgb(165, 165, 165);
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
+  text-align: center;
 }
 
 .photo-wrapper img {
   object-fit: cover;
   max-width: 100%;
-  height: auto;
+  height: 76%;
   vertical-align: middle;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;

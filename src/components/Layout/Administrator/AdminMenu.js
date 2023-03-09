@@ -51,7 +51,6 @@ const AdminMenu = () => {
   return (
     <div>
       <Sidebar
-        style={{ height: "82vh" }}
         collapsed={collapsed}
         toggled={toggled}
         handleToggleSidebar={handleToggleSidebar}
