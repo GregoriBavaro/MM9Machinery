@@ -21,8 +21,7 @@
   overflow: auto;
   margin-left: 1rem;
   border-radius: 0.2rem;
-  box-shadow: 1px 1px 15px -6px rgba(0,0,0,0.75) inset;
-
+  background-color: rgb(245, 245, 245);
 }
 
 .photo-wrapper {

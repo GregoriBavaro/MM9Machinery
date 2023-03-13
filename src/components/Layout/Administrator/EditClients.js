@@ -27,7 +27,6 @@ const EditClients = () => {
     try {
       const res = await axios.get("https://localhost:7058/api/File/all");
       setPhotosFromDb(res.data);
-      console.log("render");
     } catch (ex) {
       console.log(ex);
     }

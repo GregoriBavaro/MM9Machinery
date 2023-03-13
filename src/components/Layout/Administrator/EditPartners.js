@@ -1,25 +1,34 @@
+//Hooks
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Notifications from "../../Hooks/use-customNotifications";
 import { useTranslation } from "react-i18next";
 import { motion as m, AnimatePresence } from "framer-motion";
-import { DragAndDrop } from "./DragDropFiles";
+
+//Components
+import DragAndDrop from "./DragDropFiles";
+
 const EditPartners = () => {
   const [error, setError] = useState();
   const [partners, setPartners] = useState([]);
+
   const { t } = useTranslation();
+
   let partnersFromDb = false;
+
+  if (partners.length > 0) {
+    partnersFromDb = true;
+  }
+
   const getPartners = async () => {
     try {
       const response = await axios.get(
         "https://localhost:7058/api/PartnerFiles/all/partners"
       );
-      if (response.ok) {
-        setPartners(response.data);
-      }
-      if (!response.ok) {
-        throw new Error("Error occurred while fetching data. ");
-      }
+      setPartners(response.data);
+      // if (!response.ok) {
+      //   throw new Error("Error occurred while fetching data. ");
+      // }
     } catch (err) {
       console.log(err.message);
     }
@@ -34,9 +43,9 @@ const EditPartners = () => {
       const request = await axios.delete(
         `https://localhost:7058/api/PartnerFiles/${id}`
       );
-      if (request.ok) {
-        getPartners();
-      }
+
+      getPartners();
+
       if (!request.ok) {
         throw new Error("Error occurred while deleting file");
       }

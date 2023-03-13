@@ -5,6 +5,7 @@ import { motion as m, AnimatePresence } from "framer-motion";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { v4 as uuidv4 } from "uuid";
+import { useLocation } from 'react-router-dom';
 
 //CSS
 import classes from "./DragDropFiles.module.css";
@@ -21,6 +22,8 @@ const DragDropFiles = (props) => {
 
   const { t } = useTranslation();
 
+  const location = useLocation();
+  
   let imagePreviewContainer = false;
 
   if (imagePreviews.length > 0) {
@@ -45,6 +48,14 @@ const DragDropFiles = (props) => {
     setArrayOfPhotos(photos);
   };
 
+  let fetchUrl = "";
+
+  if(location.pathname === "/master-admin/partners") {
+    fetchUrl = "PartnerFiles/upload/partners"
+  } else {
+    fetchUrl = "File/upload"
+  }
+
   const sendPhotos = async (file) => {
     //create data file
     let formData = new FormData();
@@ -52,7 +63,7 @@ const DragDropFiles = (props) => {
 
     try {
       const res = await axios.post(
-        "https://localhost:7058/api/File/upload",
+        `https://localhost:7058/api/${fetchUrl}`,
         formData
       );
       console.log(res);
