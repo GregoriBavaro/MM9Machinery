@@ -51,9 +51,7 @@ const Footer = () => {
             <img src={logo} alt="MM9Machinery logo" />
           </div>
           <p>
-            Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do
-            eiusmod tempor incididuntut consec tetur adipisicing elit,Lorem
-            ipsum dolor sit amet.
+          Think green, pack green - for a sustainable future!
           </p>
           <div></div>
         </div>

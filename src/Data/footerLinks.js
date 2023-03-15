@@ -7,12 +7,6 @@ export const footerLinks = [
   },
   {
     className: "nav-links-footer",
-    to: "/gallery",
-    linkName: "gallery"
-
-  },
-  {
-    className: "nav-links-footer",
     to: "/contact-us",
     linkName: "contact"
 

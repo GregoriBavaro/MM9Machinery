@@ -107,4 +107,6 @@ const EditPartners = () => {
   );
 };
 
+
+
 export default EditPartners;

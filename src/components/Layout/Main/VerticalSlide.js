@@ -9,11 +9,9 @@ import heroPhoto from "../../../images/hero/dummyPackage.png";
 //CSS
 import "./VerticalSlide.css";
 
-
 const VerticalSlide = () => {
-
   const { t } = useTranslation();
-  
+
   return (
     <div className="vertical-slides-container">
       <m.div
@@ -36,8 +34,8 @@ const VerticalSlide = () => {
       >
         <div className="learn-more">
           <h1 className="first-line">
-            {t("experience_the_power")}
-            <span className="second-line">{t("of_packaging")}</span>
+            Packaging with power preserving the
+            <span className="second-line">planet!</span>
           </h1>
           <div id="container">
             <Link to="/products">

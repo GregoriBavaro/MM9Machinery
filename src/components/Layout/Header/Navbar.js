@@ -28,6 +28,7 @@ const Navbar = () => {
 
   const closeMobileMenu = () => {
     setClick(false);
+    setOpen(false)
   };
 
   if (click) {
@@ -56,6 +57,7 @@ const Navbar = () => {
     setDropdownLanguages(false);
   };
 
+ 
   const { t } = useTranslation();
 
   return (
@@ -81,11 +83,12 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <NavLink
+              
               className={({ isActive }) =>
                 isActive ? "nav-links active" : "nav-links "
               }
               to="/services"
-              onClick={closeMobileMenu}
+              onClick={closeMobileMenu }
             >
               {t("services")}
             </NavLink>

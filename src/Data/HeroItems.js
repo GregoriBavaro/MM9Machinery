@@ -12,7 +12,7 @@ export const HeroItems = [
     buttonClass: "btn hero-button",
     promo: "transport",
     backgroundColor: "background-color-slide",
-    text: "They contain over 70% recycled material and are 100% recyclable eliminating waste."
+    text: "Recycling just one ton of cardboard can save 46 gallons of oil and over 9 cubic yards of landfill space."
   },
   {
     photo: heroPhotoTwo,

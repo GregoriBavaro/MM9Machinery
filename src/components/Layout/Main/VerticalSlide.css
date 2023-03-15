@@ -28,7 +28,7 @@
 }
 
 .first-line {
-  font-size: 4rem;
+  font-size: 3rem;
   font-style: normal;
   line-height: 1.11;
   margin: 0 0 30px;
@@ -39,7 +39,7 @@
   display: block;
   text-transform: uppercase;
   letter-spacing: 3px;
-  margin-top: 0px;
+  margin-top: 1rem;
   color: rgb(31, 198, 128);
   font-size: 3rem;
 }
