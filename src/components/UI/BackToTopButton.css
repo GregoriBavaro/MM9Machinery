@@ -17,5 +17,12 @@
     background-color:  transparent;
 }
 
+@media (max-width: 820px) {
+    .back-top-container {
+        display: none;
+
+ }
+}
+
 
 

@@ -35,7 +35,7 @@ const VerticalSlide = () => {
         <div className="learn-more">
           <h1 className="first-line">
             Packaging with power preserving the
-            <span className="second-line">planet!</span>
+            <span className="second-line">planet</span>
           </h1>
           <div id="container">
             <Link to="/products">

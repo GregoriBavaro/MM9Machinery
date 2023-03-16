@@ -37,12 +37,11 @@
 .swiper-slide-testimonials {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1.5rem;
   width: 100%;
-  min-height: 30rem;
-  
+  min-height: 20rem; 
 }
 
 .swiper-slide-testimonials h3,
