@@ -1,11 +1,13 @@
 //Hooks
 import { Autoplay} from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useTranslation } from "react-i18next";
 
 // Import Swiper styles
 import "swiper/css";
 
 const ChangeText = (props) => {
+  const { t } = useTranslation();
   return (
     <Swiper
       className={props.swiperClass}
@@ -23,7 +25,7 @@ const ChangeText = (props) => {
       {props.text.map((text) => {
         return (
           <SwiperSlide key={text} className={props.swiperSlidesClass}>
-            <h3>{text}</h3>
+            <h3>{t(text)}</h3>
           </SwiperSlide>
         );
       })}

@@ -11,6 +11,9 @@ import Services from "./components/Pages/Services";
 import AboutUs from "./components/Pages/AboutUs";
 import GalleryChocolate from "./components/Pages/GalleryChocolate";
 import GalleryBeer from "./components/Pages/GalleryBeer";
+import GalleryIT from "./components/Pages/GalleryIT";
+import GalleryBags from "./components/Pages/GalleryBags";
+import GalleryBottles from "./components/Pages/GalleryBottle";
 import Laminated from "./components/Pages/Laminated";
 import Transport from "./components/Pages/Transport";
 import Cardboard from "./components/Pages/Cardboard";
@@ -38,11 +41,15 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       {
         path: "about-us",
+        element: <AboutUs />,
+      },
+      {
+        path: "services",
         element: <AboutUsLayout />,
         children: [
           {
             index: true,
-            element: <AboutUs />,
+            element: <Services />,
           },
           {
             path: "galleryChocolate",
@@ -52,12 +59,20 @@ const router = createBrowserRouter([
             path: "galleryBeer",
             element: <GalleryBeer />,
           },
+          ,
+          {
+            path: "galleryIt",
+            element: <GalleryIT />,
+          },
+          {
+            path: "galleryBags",
+            element: <GalleryBags />,
+          },
+          {
+            path: "galleryBottles",
+            element: <GalleryBottles />
+          }
         ],
-      },
-
-      {
-        path: "services",
-        element: <Services />,
       },
       {
         path: "contact-us",

@@ -1,9 +1,6 @@
 //Hooks
 import { motion as m } from "framer-motion";
 
-//Components
-import cardboard from "../../images/sections/cardboards.jpg";
-
 //CSS
 import "./Sections.css";
 
@@ -23,7 +20,7 @@ const Sections = (props) => {
       <m.div
         className={`section-inner_right ${props.right} clip-path-${props.clipPath}`}
       >
-        <img src={cardboard} alt=""/>
+        <img src={props.photo} alt=""/>
       </m.div>
     </div>
   );

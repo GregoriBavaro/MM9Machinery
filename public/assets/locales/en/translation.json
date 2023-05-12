@@ -50,8 +50,11 @@
     "quality_packaging": "Quality packaging",
     "fast_service": "Fast service",
     "we_produce_packaging_for": "We produce packaging for",
-    "gallery_one": "Chocolates",
-    "gallery_beer": "Beer",
+    "gallery_one": "Chocolates packaging",
+    "gallery_beer": "Beer packaging",
+    "gallery_it": "IT packaging",
+    "gallery_bags": "Paper Bags",
+    "gallery_bottles": "Carton Bottles",
     "back_button_name" : "back",
     "experience_the_power" : "Experience the power",
     "of_packaging": "of packaging",
@@ -70,6 +73,4 @@
     "delete": "DELETE",
     "browse_images": "Browse images",
     "upload": "Upload"
-
-    
   }

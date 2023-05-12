@@ -14,8 +14,8 @@ const GalleryBeer = () => {
   const array = [...data.beer];
 
   const currentPageName = "gallery_beer";
-  const previousPageLink = "/about-us";
-  const previousPageName = "about_us";
+  const previousPageLink = "/services";
+  const previousPageName = "services";
   const homePageName = "home";
   const homePageLink = "/";
   const twoButtons = true;

@@ -1,24 +1,24 @@
 //Hooks
 import { nameContext } from "../Hooks/Context";
+import ScrollToTop from "../Helpers/ScrollToTop";
 
 //Components
 import Gallery from "../UI/Gallery";
 import NameOfPageContainer from "../UI/NameOfPageContainer";
-import ScrollToTop from "../Helpers/ScrollToTop";
 import BackToTopButton from "../UI/BackToTopButton";
 
 //Data
 import data from "../../Data/images.json";
 
-const GalleryChocolate = () => {
-  const currentPageName = "gallery_one";
+const GalleryBottles = () => {
+  const array = [...data.bottles];
+
+  const currentPageName = "gallery_bottles";
   const previousPageLink = "/services";
   const previousPageName = "services";
   const homePageName = "home";
   const homePageLink = "/";
   const twoButtons = true;
-
-  const array = [...data.chocolates];
 
   return (
     <div>
@@ -41,4 +41,4 @@ const GalleryChocolate = () => {
   );
 };
 
-export default GalleryChocolate;
+export default GalleryBottles;

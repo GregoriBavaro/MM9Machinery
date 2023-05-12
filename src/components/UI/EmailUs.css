@@ -1,34 +1,32 @@
 .email-container {
-    margin: 0.5rem;
-    padding: 2rem;
-    flex: 50%;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    
+  margin: 0.5rem;
+  padding: 2rem;
+  flex: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .email-form-container {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-    margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: 2rem;
 }
 
 .message-label {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .error-text {
-    color: red;
+  color: red;
 }
 
 .form-button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 2rem;
-    margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 2rem;
+  margin-top: 2rem;
 }
-

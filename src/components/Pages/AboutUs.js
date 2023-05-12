@@ -3,14 +3,16 @@ import { useTranslation } from "react-i18next";
 import { nameContext } from "../Hooks/Context";
 import { motion as m } from "framer-motion";
 
-
 //Components
 import IconContainer from "../Layout/Main/IconsContainer";
 import NameOfPageContainer from "../UI/NameOfPageContainer";
 import Sections from "../UI/Sections";
-import AboutWhatWeDo from "../UI/AboutWhatWeDo";
 import MissionVisionValues from "../UI/MissionVisionValues";
 import BackToTopButton from "../UI/BackToTopButton";
+
+//Photos
+import cardboard from "../../images/sections/cardboards.jpg";
+import machine from "../../images/hero/hero (3).jpg"
 
 const AboutUs = () => {
   const currentPageName = "about_us";
@@ -53,6 +55,7 @@ const AboutUs = () => {
         firstLine={t("about_us_section_one_h1_first_line")}
         secondLine={t("about_us_section_one_h1_second_line")}
         thirdLine={t("about_us_section_one_h1_third_line")}
+        photo={cardboard}
       />
       <Sections
         left="order-right"
@@ -62,8 +65,8 @@ const AboutUs = () => {
         firstLine={t("about_us_section_two_h1_first_line")}
         secondLine={t("about_us_section_two_h1_second_line")}
         thirdLine={t("about_us_section_two_h1_third_line")}
+        photo={machine}
       />
-      <AboutWhatWeDo />
       <MissionVisionValues />
       <BackToTopButton />
     </m.div>

@@ -23,6 +23,7 @@
     rgba(0, 191, 111, 1) 67%,
     rgba(0, 185, 107, 1) 67%
   );
+  border-radius: 0px;
 }
 
 .hero-slide__left {
@@ -30,7 +31,6 @@
   justify-content: flex-end;
   align-items: center;
   flex: 100%;
-
 }
 
 .hero-slide__left img {

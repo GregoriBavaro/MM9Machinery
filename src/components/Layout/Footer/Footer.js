@@ -80,9 +80,9 @@ const Footer = () => {
           Copyright © {new Date().getFullYear()}, All Right Reserved MM9
           Machinery.
         </p>
-        <p className="gam">
+        {/* <p className="gam">
           Website by: <a href="/">GD²</a>
-        </p>
+        </p> */}
       </div>
     </Fragment>
   );
