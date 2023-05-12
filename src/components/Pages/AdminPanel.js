@@ -1,8 +1,8 @@
 //Hooks
 import { Outlet, useLoaderData, useSubmit } from "react-router-dom";
 import { ProSidebarProvider } from "react-pro-sidebar";
-import { Suspense, useEffect } from "react";
-import { getTokenDuration } from "../Helpers/Auth";
+import { Suspense } from "react";
+// import { getTokenDuration } from "../Helpers/Auth";
 //Components
 import AdminMenu from "../Layout/Administrator/AdminMenu";
 import Navbar from "../Layout/Header/Navbar";
@@ -11,8 +11,8 @@ import Navbar from "../Layout/Header/Navbar";
 import "../Layout/Administrator/AdminPanel.css";
 
 const AdminPanel = () => {
-  const token = useLoaderData();
-  const submit = useSubmit();
+  // const token = useLoaderData();
+  // const submit = useSubmit();
   // useEffect(() => {
   //   if (!token) {
   //     return;
