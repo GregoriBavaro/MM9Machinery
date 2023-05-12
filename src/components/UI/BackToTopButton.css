@@ -1,7 +1,7 @@
 .back-top-container {
     position: fixed;
     bottom: 12px;
-    right: 12px;
+    right: 25px;
     z-index: 5;
     background: rgba(0, 191, 111, 0.259);
     border-radius: 50% !important;
