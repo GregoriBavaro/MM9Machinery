@@ -30,106 +30,114 @@ import RootLayout from "./components/Pages/RootLayout";
 import AboutUsLayout from "./components/Pages/AboutUsLayout";
 import ProductsLayout from "./components/Pages/ProductsLayout";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <RootLayout />,
+      id: "root",
+      errorElement: <Error />,
+      loader: tokenLoader,
+      children: [
+        { index: true, element: <Home /> },
+        {
+          path: "about-us",
+          element: <AboutUs />,
+        },
+        {
+          path: "services",
+          element: <AboutUsLayout />,
+          children: [
+            {
+              index: true,
+              element: <Services />,
+            },
+            {
+              path: "galleryChocolate",
+              element: <GalleryChocolate />,
+            },
+            {
+              path: "galleryBeer",
+              element: <GalleryBeer />,
+            },
+            ,
+            {
+              path: "galleryIt",
+              element: <GalleryIT />,
+            },
+            {
+              path: "galleryBags",
+              element: <GalleryBags />,
+            },
+            {
+              path: "galleryBottles",
+              element: <GalleryBottles />,
+            },
+          ],
+        },
+        {
+          path: "contact-us",
+          element: <ContactUs />,
+        },
+        {
+          path: "products",
+          element: <ProductsLayout />,
+          children: [
+            {
+              index: true,
+              element: <Products />,
+            },
+            {
+              path: "laminated",
+              element: <Laminated />,
+            },
+            {
+              path: "transport",
+              element: <Transport />,
+            },
+            {
+              path: "cardboard",
+              element: <Cardboard />,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      path: "/master-admin",
+      element: <AdminPanel />,
+      id: "admin",
+      errorElement: <Error />,
+      loader: tokenLoader,
+      children: [
+        {
+          path: "login",
+          element: <LogInForm />,
+          action: authAction,
+        },
+        {
+          path: "partners",
+          element: <Partners />,
+        },
+        {
+          path: "clients",
+          element: <Clients />,
+          loader: clientsLoader,
+        },
+        {
+          path: "logout",
+          action: logoutAction,
+        },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <RootLayout />,
-    id: "root",
-    errorElement: <Error />,
-    loader: tokenLoader,
-    children: [
-      { index: true, element: <Home /> },
-      {
-        path: "about-us",
-        element: <AboutUs />,
-      },
-      {
-        path: "services",
-        element: <AboutUsLayout />,
-        children: [
-          {
-            index: true,
-            element: <Services />,
-          },
-          {
-            path: "galleryChocolate",
-            element: <GalleryChocolate />,
-          },
-          {
-            path: "galleryBeer",
-            element: <GalleryBeer />,
-          },
-          ,
-          {
-            path: "galleryIt",
-            element: <GalleryIT />,
-          },
-          {
-            path: "galleryBags",
-            element: <GalleryBags />,
-          },
-          {
-            path: "galleryBottles",
-            element: <GalleryBottles />
-          }
-        ],
-      },
-      {
-        path: "contact-us",
-        element: <ContactUs />,
-      },
-      {
-        path: "products",
-        element: <ProductsLayout />,
-        children: [
-          {
-            index: true,
-            element: <Products />,
-          },
-          {
-            path: "laminated",
-            element: <Laminated />,
-          },
-          {
-            path: "transport",
-            element: <Transport />,
-          },
-          {
-            path: "cardboard",
-            element: <Cardboard />,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    path: "/master-admin",
-    element: <AdminPanel />,
-    id: "admin",
-    errorElement: <Error />,
-    loader: tokenLoader,
-    children: [
-      {
-        path: "login",
-        element: <LogInForm />,
-        action: authAction,
-      },
-      {
-        path: "partners",
-        element: <Partners />,
-      },
-      {
-        path: "clients",
-        element: <Clients />,
-        loader: clientsLoader,
-      },
-      {
-        path: "logout",
-        action: logoutAction,
-      },
-    ],
-  },
-]);
+    future: {
+      v7_startTransition: true,
+      v7_relativeSplatPath: true,
+    },
+  }
+);
 
 function App() {
   return (
